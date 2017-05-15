@@ -3,22 +3,49 @@
     height: 500px;
     background: lightgrey;
     margin: auto;
+    border-radius: 10px 10px 0 0;
 }
 
-.perso {
+.perso1 {
     width: 20px;
     height: 20px;
     border-radius: 2px;
     background: grey;
     position: relative;
-    top: 0px;
-    left: 0px;
+    top: 250px;
+    left: 100px;
+}
+
+.perso2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background: grey;
+    position: relative;
+    top: 230px;
+    left: 370px;
+}
+
+.bouton {
+    width: 60px;
+    height: 60px;
+    border-radius: 100px;
+    position: relative;
+    left: 220px;
+    top: 400px;
+    background: red;
+    border: 5px solid darkred;
+}
+
+.bouton:active {
+    background: darkred;
+    border: 5px solid red;
 }
 
 .compteur {
     width: 500px;
     margin: auto;
-    height: 50px;
+    height: 250px;
     background: darkgray;
     font-family: 'Geo', sans-serif;
     display: flex;
