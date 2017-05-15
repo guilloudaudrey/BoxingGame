@@ -10,4 +10,17 @@
     height: 20px;
     border-radius: 2px;
     background: grey;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.compteur {
+    width: 500px;
+    margin: auto;
+    height: 50px;
+    background: darkgray;
+    font-family: 'Geo', sans-serif;
+    display: flex;
+    justify-content: space-around;
 }
