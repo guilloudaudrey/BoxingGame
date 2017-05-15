@@ -1,0 +1,13 @@
+.ring {
+    width: 500px;
+    height: 500px;
+    background: lightgrey;
+    margin: auto;
+}
+
+.perso {
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    background: grey;
+}
