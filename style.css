@@ -1,53 +1,137 @@
-.ring {
-    width: 500px;
-    height: 500px;
-    background: lightgrey;
-    margin: auto;
-    border-radius: 10px 10px 0 0;
-}
-
-.perso1 {
+    .ring {
+        width: 1100px;
+        height: 500px;
+        background: lightgrey;
+        margin: auto;
+        display: flex;
+    }
+    
+    .ring1 {
+        background: darkgray;
+        width: 550px;
+    }
+    
+    .ring2 {
+        background: grey;
+        width: 550px;
+    }
+    
+    .bonusbox {
+        width: 1100px;
+        height: 100px;
+        margin: auto;
+        background: lightgrey;
+        display: flex;
+    }
+    
+    .bonusbox1 {
+        width: 550px;
+        height: 110px;
+        margin: auto;
+        background: grey;
+        display: flex;
+    }
+    
+    .bonusbox1 p,
+    .bonusbox2 p {
+        position: relative;
+        top: 35px;
+    }
+    
+    .bonusbox2 {
+        width: 550px;
+        height: 110px;
+        margin: auto;
+        background: darkgrey;
+        display: flex;
+    }
+    /*.bonus {
     width: 20px;
     height: 20px;
-    border-radius: 2px;
-    background: grey;
-    position: relative;
-    top: 250px;
-    left: 100px;
-}
-
-.perso2 {
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
-    background: grey;
-    position: relative;
-    top: 230px;
-    left: 370px;
-}
-
-.bouton {
-    width: 60px;
-    height: 60px;
-    border-radius: 100px;
-    position: relative;
-    left: 220px;
-    top: 400px;
     background: red;
-    border: 5px solid darkred;
-}
-
-.bouton:active {
-    background: darkred;
-    border: 5px solid red;
-}
-
-.compteur {
-    width: 500px;
-    margin: auto;
-    height: 250px;
-    background: darkgray;
-    font-family: 'Geo', sans-serif;
-    display: flex;
-    justify-content: space-around;
-}
+}*/
+    
+    .perso1,
+    .perso2 {
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        background: yellow;
+        margin: auto;
+        top: 200px;
+        position: relative;
+    }
+    
+    .bouton1,
+    .bouton2,
+    .bouton3,
+    .bouton4,
+    .bouton5,
+    .bouton6 {
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background: red;
+        border: 5px solid darkred;
+        margin: auto;
+        box-shadow: 3px 2px 1px black;
+    }
+    
+    .bouton1:active,
+    .bouton2:active,
+    .bouton3:active,
+    .bouton4:active,
+    .bouton5:active,
+    .bouton6:active {
+        background: darkred;
+        border: 5px solid red;
+    }
+    
+    .compteur {
+        width: 1100px;
+        margin: auto;
+        height: 250px;
+        background: yellow;
+        font-family: 'Geo', sans-serif;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .tremble {
+        animation-name: shake;
+        animation-duration: 0.1s;
+    }
+    
+    .disparaitre {
+        animation-name: fade;
+        animation-duration: 1s;
+    }
+    
+    @keyframes shake {
+        10%,
+        90% {
+            transform: translate3d(-2px, 0, 0);
+        }
+        20%,
+        80% {
+            transform: translate3d(4px, 0, 0);
+        }
+        30%,
+        50%,
+        70% {
+            transform: translate3d(-5px, 0, 0);
+        }
+        40%,
+        60% {
+            transform: translate3d(6px, 0, 0);
+        }
+    }
+    
+    @keyframes fade {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
