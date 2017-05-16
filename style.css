@@ -4,6 +4,7 @@
         background: lightgrey;
         margin: auto;
         display: flex;
+        justify-content: center;
     }
     
     .ring1 {
@@ -32,10 +33,17 @@
         display: flex;
     }
     
-    .bonusbox1 p,
+    .bonusbox1 p {
+        position: relative;
+        left: 0;
+        top: 35px;
+        padding-bottom: 20px;
+    }
+    
     .bonusbox2 p {
         position: relative;
         top: 35px;
+        padding-bottom: 20px;
     }
     
     .bonusbox2 {
@@ -53,10 +61,9 @@
     
     .perso1,
     .perso2 {
-        width: 20px;
-        height: 20px;
+        width: 200px;
+        height: 200px;
         border-radius: 2px;
-        background: yellow;
         margin: auto;
         top: 200px;
         position: relative;
