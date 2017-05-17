@@ -1,144 +1,163 @@
-    .ring {
-        width: 1100px;
-        height: 500px;
-        background: lightgrey;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .ring1 {
-        background: darkgray;
-        width: 550px;
-    }
-    
-    .ring2 {
-        background: grey;
-        width: 550px;
-    }
-    
-    .bonusbox {
-        width: 1100px;
-        height: 100px;
-        margin: auto;
-        background: lightgrey;
-        display: flex;
-    }
-    
-    .bonusbox1 {
-        width: 550px;
-        height: 110px;
-        margin: auto;
-        background: grey;
-        display: flex;
-    }
-    
-    .bonusbox1 p {
-        position: relative;
-        left: 0;
-        top: 35px;
-        padding-bottom: 20px;
-    }
-    
-    .bonusbox2 p {
-        position: relative;
-        top: 35px;
-        padding-bottom: 20px;
-    }
-    
-    .bonusbox2 {
-        width: 550px;
-        height: 110px;
-        margin: auto;
-        background: darkgrey;
-        display: flex;
-    }
-    /*.bonus {
+ .ring {
+     width: 1100px;
+     height: 500px;
+     background: lightgrey;
+     margin: auto;
+     display: flex;
+     justify-content: center;
+ }
+ 
+ .ring1 {
+     background: darkgray;
+     width: 550px;
+ }
+ 
+ .ring2 {
+     background: grey;
+     width: 550px;
+ }
+ 
+ .bonusbox {
+     width: 1100px;
+     height: 100px;
+     margin: auto;
+     background: lightgrey;
+     display: flex;
+ }
+ 
+ .bonusbox1 {
+     width: 550px;
+     height: 110px;
+     margin: auto;
+     background: grey;
+     display: flex;
+ }
+ 
+ .bonusbox1 p {
+     position: relative;
+     left: 0;
+     top: 35px;
+     padding-bottom: 20px;
+ }
+ 
+ .bonusbox2 p {
+     position: relative;
+     top: 35px;
+     padding-bottom: 20px;
+ }
+ 
+ .bonusbox2 {
+     width: 550px;
+     height: 110px;
+     margin: auto;
+     background: darkgrey;
+     display: flex;
+ }
+ /*.bonus {
     width: 20px;
     height: 20px;
     background: red;
 }*/
-    
-    .perso1,
-    .perso2 {
-        width: 200px;
-        height: 200px;
-        border-radius: 2px;
-        margin: auto;
-        top: 200px;
-        position: relative;
-    }
-    
-    .bouton1,
-    .bouton2,
-    .bouton3,
-    .bouton4,
-    .bouton5,
-    .bouton6 {
-        width: 40px;
-        height: 40px;
-        border-radius: 100px;
-        background: red;
-        border: 5px solid darkred;
-        margin: auto;
-        box-shadow: 3px 2px 1px black;
-    }
-    
-    .bouton1:active,
-    .bouton2:active,
-    .bouton3:active,
-    .bouton4:active,
-    .bouton5:active,
-    .bouton6:active {
-        background: darkred;
-        border: 5px solid red;
-    }
-    
-    .compteur {
-        width: 1100px;
-        margin: auto;
-        height: 250px;
-        background: yellow;
-        font-family: 'Geo', sans-serif;
-        display: flex;
-        justify-content: space-around;
-    }
-    
-    .tremble {
-        animation-name: shake;
-        animation-duration: 0.1s;
-    }
-    
-    .disparaitre {
-        animation-name: fade;
-        animation-duration: 1s;
-    }
-    
-    @keyframes shake {
-        10%,
-        90% {
-            transform: translate3d(-2px, 0, 0);
-        }
-        20%,
-        80% {
-            transform: translate3d(4px, 0, 0);
-        }
-        30%,
-        50%,
-        70% {
-            transform: translate3d(-5px, 0, 0);
-        }
-        40%,
-        60% {
-            transform: translate3d(6px, 0, 0);
-        }
-    }
-    
-    @keyframes fade {
-        0% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
+ 
+ .perso1,
+ .perso2 {
+     width: 200px;
+     height: 200px;
+     border-radius: 100px;
+     margin: auto;
+     top: 200px;
+     position: relative;
+     background: yellow;
+     opacity: 0.2;
+ }
+ 
+ .bouton1,
+ .bouton2,
+ .bouton3,
+ .bouton4,
+ .bouton5,
+ .bouton6 {
+     width: 40px;
+     height: 40px;
+     border-radius: 100px;
+     background: red;
+     border: 5px solid darkred;
+     margin: auto;
+     box-shadow: 3px 2px 1px black;
+ }
+ 
+ .bouton1:active,
+ .bouton2:active,
+ .bouton3:active,
+ .bouton4:active,
+ .bouton5:active,
+ .bouton6:active {
+     background: darkred;
+     border: 5px solid red;
+ }
+ 
+ .compteur {
+     width: 1100px;
+     margin: auto;
+     height: 250px;
+     background: yellow;
+     font-family: 'Geo', sans-serif;
+     display: flex;
+     justify-content: space-around;
+ }
+ 
+ .tremble {
+     animation-name: shake;
+     animation-duration: 0.1s;
+ }
+ 
+ .eclair {
+     animation-name: eclair;
+     animation-duration: 0.1s;
+ }
+ 
+ .disparaitre {
+     animation-name: fade;
+     animation-duration: 1s;
+ }
+ 
+ @keyframes shake {
+     10%,
+     90% {
+         transform: translate3d(-6px, 0, 0);
+     }
+     20%,
+     80% {
+         transform: translate3d(4px, 0, 0);
+     }
+     30%,
+     50%,
+     70% {
+         transform: translate3d(-5px, 0, 0);
+     }
+     40%,
+     60% {
+         transform: translate3d(6px, 0, 0);
+     }
+ }
+ 
+ @keyframes fade {
+     0% {
+         opacity: 1;
+     }
+     100% {
+         opacity: 0;
+     }
+ }
+ 
+ @keyframes eclair {
+     0% {
+         opacity: 0;
+     }
+     50% {
+         opacity: 1;
+     }
+     100% {
+         opacity: 0
+     }
+ }
