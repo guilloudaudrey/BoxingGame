@@ -14,34 +14,17 @@ let perso2 = {
 
 
 
-//trois attaques
+//Attaque
 
-function Uppercut(cible) {
+function Attaque(degats, cible) {
     if (cible.energie > 0) {
-        cible.energie = cible.energie - 1;
+        cible.energie = cible.energie - degats;
     } else {
-        cible.vies = cible.vies - 1;
+        cible.vies = cible.vies - degats;
         cible.energie = 10;
     }
 }
 
-function Direct(cible) {
-    if (cible.energie >= 4) {
-        cible.energie = cible.energie - 4;
-    } else {
-        cible.vies = cible.vies - 1;
-        cible.energie = 10;
-    }
-}
-
-function Crochet(cible) {
-    if (cible.energie >= 2) {
-        cible.energie = cible.energie - 2;
-    } else {
-        cible.vies = cible.vies - 1;
-        cible.energie = 10;
-    }
-}
 
 function Bonus() {
     perso1.energie += 10;
@@ -118,7 +101,7 @@ afficherPointsJ2();
 
 let bouton4 = document.querySelector(".bouton4");
 bouton4.addEventListener("click", function() {
-    Uppercut(perso1);
+    Attaque(1, perso1);
     tremblement1();
     eclair2();
     afficherPointsJ1();
@@ -127,7 +110,7 @@ bouton4.addEventListener("click", function() {
 
 let bouton5 = document.querySelector(".bouton5");
 bouton5.addEventListener("click", function() {
-    Crochet(perso1);
+    Attaque(2, perso1);
     tremblement1();
     eclair2();
     afficherPointsJ1();
@@ -136,7 +119,7 @@ bouton5.addEventListener("click", function() {
 
 let bouton6 = document.querySelector(".bouton6");
 bouton6.addEventListener("click", function() {
-    Direct(perso1);
+    Attaque(4, perso1);
     tremblement1();
     eclair2();
     afficherPointsJ1();
@@ -147,7 +130,7 @@ bouton6.addEventListener("click", function() {
 
 let bouton1 = document.querySelector(".bouton1");
 bouton1.addEventListener("click", function() {
-    Uppercut(perso2);
+    Attaque(1, perso2);
     tremblement2();
     eclair();
     afficherPointsJ2();
@@ -156,7 +139,7 @@ bouton1.addEventListener("click", function() {
 
 let bouton2 = document.querySelector(".bouton2");
 bouton2.addEventListener("click", function() {
-    Crochet(perso2);
+    Attaque(2, perso2);
     tremblement2();
     eclair();
     afficherPointsJ2();
@@ -165,7 +148,7 @@ bouton2.addEventListener("click", function() {
 
 let bouton3 = document.querySelector(".bouton3");
 bouton3.addEventListener("click", function() {
-    Direct(perso2);
+    Attaque(4, perso2);
     tremblement2();
     eclair();
     afficherPointsJ2();
