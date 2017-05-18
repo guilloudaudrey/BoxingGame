@@ -191,7 +191,7 @@
         margin: auto;
         text-align: center;
         height: 250px;
-        background: yellow;
+        background-image: linear-gradient(yellow, white);
         font-family: 'Geo', sans-serif;
         width: 20%;
         height: 530px;

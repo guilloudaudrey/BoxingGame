@@ -15,9 +15,6 @@ let perso2 = {
 }
 
 
-
-//Attaque
-
 function Attaque(degats, cible, vie) {
     if (cible.energie > 0) {
         cible.energie = cible.energie - degats;
@@ -31,39 +28,51 @@ function Points(personnage) {
     personnage.points = personnage.points + 1;
 }
 
+function ReinitialiserJ1() {
+    perso1.energie = 10;
+    perso1.vies = 5;
+}
+
+function ReinitialiserJ2() {
+    perso2.energie = 10;
+    perso2.vies = 5;
+}
+
+function GameOver(personnage, cible) {
+    if (cible.vies < 0) {
+        Points(personnage);
+        alert("gameover");
+        ReinitialiserJ1();
+        afficherEVJ1();
+        ReinitialiserJ2();
+        afficherEVJ2();
+    }
+}
+
 function AfficherPoints1() {
     let pointJ1 = document.querySelector(".compteurJ1");
     pointJ1.innerHTML = perso1.points;
 }
 
-function GameOver() {
-    if (perso1.vies < 0) {
-        Points(perso2);
-        console.log("gameover");
-    }
-
-    if (perso2.vies < 0) {
-        Points(perso1);
-        console.log("gameover");
-    }
+function AfficherPoints2() {
+    let pointJ2 = document.querySelector(".compteurJ2");
+    pointJ2.innerHTML = perso2.points;
 }
 
-function afficherPointsJ1() {
+
+function afficherEVJ1() {
     let pointsener = document.querySelector(".compteurener1");
     pointsener.innerHTML = perso1.energie;
     let pointsvies = document.querySelector(".compteurvies1");
     pointsvies.innerHTML = perso1.vies;
 }
 
-function afficherPointsJ2() {
+function afficherEVJ2() {
     let pointsener = document.querySelector(".compteurener2");
     pointsener.innerHTML = perso2.energie;
     let pointsvies = document.querySelector(".compteurvies2");
     pointsvies.innerHTML = perso2.vies;
 }
-
-
-
 
 function tremblement1() {
     let personnage1 = document.querySelector(".perso1");
@@ -107,10 +116,8 @@ function eclair2() {
     })
 }
 
-
-
-afficherPointsJ1();
-afficherPointsJ2();
+afficherEVJ1();
+afficherEVJ2();
 
 //event joueur 1
 
@@ -119,10 +126,11 @@ bouton4.addEventListener("click", function() {
     Attaque(1, perso1, 1);
     tremblement1();
     eclair2();
-    afficherPointsJ1();
-    GameOver();
-    AfficherPoints1()
-
+    afficherEVJ1();
+    GameOver(perso1, perso2);
+    GameOver(perso2, perso1);
+    AfficherPoints1();
+    AfficherPoints2();
 })
 
 let bouton5 = document.querySelector(".bouton5");
@@ -130,9 +138,11 @@ bouton5.addEventListener("click", function() {
     Attaque(2, perso1, 1);
     tremblement1();
     eclair2();
-    afficherPointsJ1();
-    GameOver();
-    AfficherPoints1()
+    afficherEVJ1();
+    GameOver(perso1, perso2);
+    GameOver(perso2, perso1);;
+    AfficherPoints1();
+    AfficherPoints2();
 })
 
 let bouton6 = document.querySelector(".bouton6");
@@ -140,9 +150,11 @@ bouton6.addEventListener("click", function() {
     Attaque(4, perso1, 1);
     tremblement1();
     eclair2();
-    afficherPointsJ1();
-    GameOver();
-    AfficherPoints1()
+    afficherEVJ1();
+    GameOver(perso1, perso2);
+    GameOver(perso2, perso1);
+    AfficherPoints1();
+    AfficherPoints2();
 })
 
 //event joueur 2
@@ -152,9 +164,11 @@ bouton1.addEventListener("click", function() {
     Attaque(1, perso2, 1);
     tremblement2();
     eclair();
-    afficherPointsJ2();
-    GameOver();
-    AfficherPoints1()
+    afficherEVJ2();
+    GameOver(perso1, perso2);
+    GameOver(perso2, perso1);
+    AfficherPoints2();
+    AfficherPoints1();
 })
 
 let bouton2 = document.querySelector(".bouton2");
@@ -162,9 +176,11 @@ bouton2.addEventListener("click", function() {
     Attaque(2, perso2, 1);
     tremblement2();
     eclair();
-    afficherPointsJ2();
-    GameOver();
-    AfficherPoints1()
+    afficherEVJ2();
+    GameOver(perso1, perso2);
+    GameOver(perso2, perso1);
+    AfficherPoints2();
+    AfficherPoints1();
 })
 
 let bouton3 = document.querySelector(".bouton3");
@@ -172,9 +188,11 @@ bouton3.addEventListener("click", function() {
     Attaque(4, perso2, 1);
     tremblement2();
     eclair();
-    afficherPointsJ2();
-    GameOver();
-    AfficherPoints1()
+    afficherEVJ2();
+    GameOver(perso1, perso2);
+    GameOver(perso2, perso1);
+    AfficherPoints2();
+    AfficherPoints1();
 })
 
 /*let bonus = document.querySelector(".bonus");
