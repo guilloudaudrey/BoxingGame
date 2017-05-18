@@ -3,13 +3,15 @@
 let perso1 = {
     name: "A",
     energie: 10,
-    vies: 5
+    vies: 5,
+    points: ""
 }
 
 let perso2 = {
     name: "B",
     energie: 10,
-    vies: 5
+    vies: 5,
+    points: ""
 }
 
 
@@ -25,10 +27,6 @@ function Attaque(degats, cible) {
     }
 }
 
-
-function Bonus() {
-    perso1.energie += 10;
-}
 
 function afficherPointsJ1() {
     let points = document.querySelector(".compteurener1");
