@@ -16,6 +16,7 @@
         color: white;
         text-align: center;
         font-family: 'Press Start 2P', cursive;
+        animation: eclair 2s infinite;
     }
     
     .grandezone {

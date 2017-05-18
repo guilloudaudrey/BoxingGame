@@ -24,6 +24,21 @@ function Attaque(degats, cible, vie) {
     }
 }
 
+
+function afficherEVJ1() {
+    let pointsener = document.querySelector(".compteurener1");
+    pointsener.innerHTML = perso1.energie;
+    let pointsvies = document.querySelector(".compteurvies1");
+    pointsvies.innerHTML = perso1.vies;
+}
+
+function afficherEVJ2() {
+    let pointsener = document.querySelector(".compteurener2");
+    pointsener.innerHTML = perso2.energie;
+    let pointsvies = document.querySelector(".compteurvies2");
+    pointsvies.innerHTML = perso2.vies;
+}
+
 function Points(personnage) {
     personnage.points = personnage.points + 1;
 }
@@ -59,20 +74,7 @@ function AfficherPoints2() {
     pointJ2.innerHTML = perso2.points;
 }
 
-
-function afficherEVJ1() {
-    let pointsener = document.querySelector(".compteurener1");
-    pointsener.innerHTML = perso1.energie;
-    let pointsvies = document.querySelector(".compteurvies1");
-    pointsvies.innerHTML = perso1.vies;
-}
-
-function afficherEVJ2() {
-    let pointsener = document.querySelector(".compteurener2");
-    pointsener.innerHTML = perso2.energie;
-    let pointsvies = document.querySelector(".compteurvies2");
-    pointsvies.innerHTML = perso2.vies;
-}
+//animations
 
 function tremblement1() {
     let personnage1 = document.querySelector(".perso1");
