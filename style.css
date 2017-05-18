@@ -1,232 +1,269 @@
-body {
-    padding-top: 50px;
-    background: black;
-}
-
-body>h1 {
-    font-family: 'Press Start 2P', cursive;
-    text-shadow: 2px 1px 1px grey;
-    color: white;
-    padding-bottom: 100px;
-    text-align: center;
-    font-size: 3em;
-}
-
-.grandezone {
-    padding-top: 50px;
-    display: flex;
-}
-
-.ring {
-    width: 1100px;
-    height: 420px;
-    background: url(boxingring.png) no-repeat center;
-    margin: auto;
-    display: flex;
-}
-
-.ring1 {
-    width: 550px;
-}
-
-.ring2 {
-    width: 550px;
-}
-
-.bonusbox {
-    width: 1100px;
-    height: 100px;
-    margin: auto;
-    background: lightgrey;
-    display: flex;
-}
-
-.bonusbox1 {
-    width: 550px;
-    height: 110px;
-    margin: auto;
-    background: grey;
-    display: flex;
-}
-
-.bonusbox1 p {
-    position: relative;
-    left: 0;
-    top: 35px;
-    padding-bottom: 20px;
-}
-
-.bonusbox2 p {
-    position: relative;
-    top: 35px;
-    padding-bottom: 20px;
-}
-
-.bonusbox2 {
-    width: 550px;
-    height: 110px;
-    margin: auto;
-    background: darkgrey;
-    display: flex;
-}
-
-
-/*.bonus {
+    body {
+        padding-top: 10px;
+        background: black;
+    }
+    
+    body>h1 {
+        font-family: 'Press Start 2P', cursive;
+        text-shadow: 3px 3px 1px white;
+        color: red;
+        padding-bottom: 25px;
+        text-align: center;
+        font-size: 4em;
+    }
+    
+    body>h2 {
+        color: white;
+        text-align: center;
+        font-family: 'Press Start 2P', cursive;
+    }
+    
+    .grandezone {
+        padding-top: 20px;
+        display: flex;
+        margin: auto;
+    }
+    
+    .compteurpoints {
+        width: 15%;
+        height: 50px;
+        background: white;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: auto;
+    }
+    
+    .compteurJ1,
+    .compteurJ2 {
+        text-align: center;
+        font-family: 'Press Start 2P', cursive;
+    }
+    
+    .pointsJ1 {
+        width: 45%;
+        background: lightgray;
+        border-radius: 5px;
+        height: 40px;
+    }
+    
+    .pointsJ2 {
+        width: 45%;
+        background: lightgray;
+        border-radius: 5px;
+        height: 40px;
+    }
+    
+    .ring {
+        width: 1100px;
+        height: 420px;
+        background: url(boxingring.png) no-repeat center;
+        margin: auto;
+        display: flex;
+    }
+    
+    .ring1 {
+        width: 550px;
+    }
+    
+    .ring2 {
+        width: 550px;
+    }
+    
+    .bonusbox {
+        width: 1100px;
+        height: 100px;
+        margin: auto;
+        background: lightgrey;
+        display: flex;
+    }
+    
+    .bonusbox1 {
+        width: 550px;
+        height: 110px;
+        margin: auto;
+        background: grey;
+        display: flex;
+    }
+    
+    .bonusbox1 p {
+        position: relative;
+        left: 0;
+        top: 35px;
+        padding-bottom: 20px;
+    }
+    
+    .bonusbox2 p {
+        position: relative;
+        top: 35px;
+        padding-bottom: 20px;
+    }
+    
+    .bonusbox2 {
+        width: 550px;
+        height: 110px;
+        margin: auto;
+        background: darkgrey;
+        display: flex;
+    }
+    /*.bonus {
     width: 20px;
     height: 20px;
     background: red;
 }*/
-
-.perso2 {
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    margin: auto;
-    top: 100px;
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.perso1 {
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-    margin: auto;
-    top: 100px;
-    position: relative;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.bouton1,
-.bouton4 {
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    background: red;
-    border: 5px solid darkred;
-    margin: auto;
-    box-shadow: 3px 2px 1px black;
-}
-
-.bouton2,
-.bouton5 {
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    background: blue;
-    border: 5px solid darkblue;
-    margin: auto;
-    box-shadow: 3px 2px 1px black;
-}
-
-.bouton3,
-.bouton6 {
-    width: 40px;
-    height: 40px;
-    border-radius: 100px;
-    background: green;
-    border: 5px solid darkgreen;
-    margin: auto;
-    box-shadow: 3px 2px 1px black;
-}
-
-.bouton1:active,
-.bouton4:active {
-    background: darkred;
-    border: 5px solid red;
-}
-
-.bouton2:active,
-.bouton5:active {
-    background: darkblue;
-    border: 5px solid blue;
-}
-
-.bouton3:active,
-.bouton6:active {
-    background: darkgreen;
-    border: 5px solid green;
-}
-
-.compteur1,
-.compteur2 {
-    margin: auto;
-    text-align: center;
-    height: 250px;
-    background: yellow;
-    font-family: 'Geo', sans-serif;
-    width: 20%;
-    height: 530px;
-}
-
-.compteur1 h1,
-.compteur2 h1 {
-    font-family: 'Press Start 2P', cursive;
-}
-
-#yourHealthBar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 20px;
-    width: 100px;
-    background: lightgreen;
-}
-
-.tremble {
-    animation-name: shake;
-    animation-duration: 0.2s;
-}
-
-.eclair {
-    animation-name: eclair;
-    animation-duration: 0.1s;
-}
-
-.disparaitre {
-    animation-name: fade;
-    animation-duration: 1s;
-}
-
-@keyframes shake {
-    10%,
-    90% {
-        transform: translate3d(-50px, 0, 0);
+    
+    .perso2 {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        margin: auto;
+        top: 100px;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
     }
-    20%,
-    80% {
-        transform: translate3d(50px, 0, 0);
+    
+    .perso1 {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        margin: auto;
+        top: 100px;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
     }
-    30%,
-    50%,
-    70% {
-        transform: translate3d(-50px, 0, 0);
+    
+    .bouton1,
+    .bouton4 {
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background: red;
+        border: 5px solid darkred;
+        margin: auto;
+        box-shadow: 3px 2px 1px black;
     }
-    40%,
-    60% {
-        transform: translate3d(50px, 0, 0);
+    
+    .bouton2,
+    .bouton5 {
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background: blue;
+        border: 5px solid darkblue;
+        margin: auto;
+        box-shadow: 3px 2px 1px black;
     }
-}
-
-@keyframes fade {
-    0% {
-        opacity: 1;
+    
+    .bouton3,
+    .bouton6 {
+        width: 40px;
+        height: 40px;
+        border-radius: 100px;
+        background: green;
+        border: 5px solid darkgreen;
+        margin: auto;
+        box-shadow: 3px 2px 1px black;
     }
-    100% {
-        opacity: 0;
+    
+    .bouton1:active,
+    .bouton4:active {
+        background: darkred;
+        border: 5px solid red;
     }
-}
-
-@keyframes eclair {
-    0% {
-        opacity: 0;
+    
+    .bouton2:active,
+    .bouton5:active {
+        background: darkblue;
+        border: 5px solid blue;
     }
-    50% {
-        opacity: 1;
+    
+    .bouton3:active,
+    .bouton6:active {
+        background: darkgreen;
+        border: 5px solid green;
     }
-    100% {
-        opacity: 0
+    
+    .compteur1,
+    .compteur2 {
+        margin: auto;
+        text-align: center;
+        height: 250px;
+        background: yellow;
+        font-family: 'Geo', sans-serif;
+        width: 20%;
+        height: 530px;
     }
-}
+    
+    .compteur1 h1,
+    .compteur2 h1 {
+        font-family: 'Press Start 2P', cursive;
+        text-shadow: 3px 3px 1px white;
+    }
+    
+    #yourHealthBar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 20px;
+        width: 100px;
+        background: lightgreen;
+    }
+    
+    .tremble {
+        animation-name: shake;
+        animation-duration: 0.2s;
+    }
+    
+    .eclair {
+        animation-name: eclair;
+        animation-duration: 0.1s;
+    }
+    
+    .disparaitre {
+        animation-name: fade;
+        animation-duration: 1s;
+    }
+    
+    @keyframes shake {
+        10%,
+        90% {
+            transform: translate3d(-50px, 0, 0);
+        }
+        20%,
+        80% {
+            transform: translate3d(50px, 0, 0);
+        }
+        30%,
+        50%,
+        70% {
+            transform: translate3d(-50px, 0, 0);
+        }
+        40%,
+        60% {
+            transform: translate3d(50px, 0, 0);
+        }
+    }
+    
+    @keyframes fade {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes eclair {
+        0% {
+            opacity: 0;
+        }
+        50% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0
+        }
+    }
