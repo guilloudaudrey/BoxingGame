@@ -1,11 +1,15 @@
 // ----------------------------personnages 
+"use strict";
+
+let jeu = {
+    turn: 0
+};
 
 let perso1 = {
     name: "A",
     energie: 10,
     vies: 5,
     points: 0,
-    turn: 0
 }
 
 let perso2 = {
@@ -13,28 +17,33 @@ let perso2 = {
     energie: 10,
     vies: 5,
     points: 0,
-    turn: 0
 }
 
-//----------------------changer de jouer
+//----------------------changer de joueur
 
-function ChangeJoueur() {
-    if (perso1.turn % 2 === 0) {
+function changeJoueur() {
+    let bonusbox2 = document.querySelector(".bonusbox2");
+    let bonusbox1 = document.querySelector(".bonusbox1");
+    if (jeu.turn % 2 === 0) {
         alert("tour du joueur 1");
+        bonusbox2.style.display = "none";
+        bonusbox1.style.display = "flex";
     } else {
         alert("tour du joueur 2");
+        bonusbox2.style.display = "flex";
+        bonusbox1.style.display = "none";
     }
 }
 
 //---------------------------ajouter tour
 
-function addTurn(perso) {
-    perso.turn = perso.turn + 1;
+function addTurn() {
+    jeu.turn = jeu.turn + 1;
 }
 
 //-----------------------------attaques
 
-function Uppercut(cible) {
+function uppercut(cible) {
     if (cible.energie > 0) {
         cible.energie = cible.energie - 1;
     } else {
@@ -43,7 +52,7 @@ function Uppercut(cible) {
     }
 }
 
-function Direct(cible) {
+function direct(cible) {
     if (cible.energie >= 4) {
         cible.energie = cible.energie - 4;
     } else {
@@ -52,7 +61,7 @@ function Direct(cible) {
     }
 }
 
-function Crochet(cible) {
+function crochet(cible) {
     if (cible.energie >= 2) {
         cible.energie = cible.energie - 2;
     } else {
@@ -63,63 +72,50 @@ function Crochet(cible) {
 
 //----------------------------afficher énergie et vies 
 
-function afficherEVJ1() {
-    let pointsener = document.querySelector(".compteurener1");
-    pointsener.innerHTML = perso1.energie;
-    let pointsvies = document.querySelector(".compteurvies1");
-    pointsvies.innerHTML = perso1.vies;
-}
-
-function afficherEVJ2() {
-    let pointsener = document.querySelector(".compteurener2");
-    pointsener.innerHTML = perso2.energie;
-    let pointsvies = document.querySelector(".compteurvies2");
-    pointsvies.innerHTML = perso2.vies;
+function afficherEV() {
+    let pointsener1 = document.querySelector(".compteurener1");
+    pointsener1.innerHTML = perso1.energie;
+    let pointsvies1 = document.querySelector(".compteurvies1");
+    pointsvies1.innerHTML = perso1.vies;
+    let pointsener2 = document.querySelector(".compteurener2");
+    pointsener2.innerHTML = perso2.energie;
+    let pointsvies2 = document.querySelector(".compteurvies2");
+    pointsvies2.innerHTML = perso2.vies;
 }
 
 // -----------------------------ajouter points
 
-function Points(personnage) {
+function points(personnage) {
     personnage.points = personnage.points + 1;
 }
 
 //-----------------réinitialiser l'énergie et les vies
 
-function ReinitialiserJ1() {
+function reinitialiser() {
     perso1.energie = 10;
     perso1.vies = 5;
-}
-
-function ReinitialiserJ2() {
     perso2.energie = 10;
     perso2.vies = 5;
 }
 
-//------------------------- game over
+//------------------------- Fin de Manche
 
-function GameOver(personnage, cible) {
+function finDeManche(personnage, cible) {
     if (cible.vies < 0) {
-        Points(personnage);
+        points(personnage);
         alert("gameover");
-        ReinitialiserJ1();
-        afficherEVJ1();
-        ReinitialiserJ2();
-        afficherEVJ2();
-        addTurn(perso1);
-        addTurn(perso2);
-        ChangeJoueur();
+        reinitialiser();
+        afficherEV();
+        addTurn();
+        changeJoueur();
     }
 }
 
-//------------------ afficher le score du joueur 1
+//------------------ afficher le score des joueurs
 
-function AfficherPoints1() {
+function afficherPoints() {
     let pointJ1 = document.querySelector(".compteurJ1");
     pointJ1.innerHTML = perso1.points;
-}
-
-// afficher le score du joueur 2
-function AfficherPoints2() {
     let pointJ2 = document.querySelector(".compteurJ2");
     pointJ2.innerHTML = perso2.points;
 }
@@ -169,86 +165,87 @@ function eclair2() {
 }
 
 
+
 //----------------------------------- événements
 
-afficherEVJ1();
-afficherEVJ2();
-ChangeJoueur();
+afficherEV();
+afficherEV();
+changeJoueur();
 
 //---------------------------------event joueur 2
 
 let bouton4 = document.querySelector(".bouton4");
 bouton4.addEventListener("click", function() {
-    Uppercut(perso1);
+    uppercut(perso1);
     tremblement1();
     eclair2();
-    afficherEVJ1();
-    GameOver(perso1, perso2);
-    GameOver(perso2, perso1);
-    AfficherPoints1();
-    AfficherPoints2();
+    afficherEV();
+    finDeManche(perso1, perso2);
+    finDeManche(perso2, perso1);
+    afficherPoints();
+    afficherPoints();
 })
 
 let bouton5 = document.querySelector(".bouton5");
-bouton5.addEventListener("click", function() {
-    Crochet(perso1);
+bouton5.addEventListener("click", function(e) {
+    crochet(perso1);
     tremblement1();
     eclair2();
-    afficherEVJ1();
-    GameOver(perso1, perso2);
-    GameOver(perso2, perso1);;
-    AfficherPoints1();
-    AfficherPoints2();
+    afficherEV();
+    finDeManche(perso1, perso2);
+    finDeManche(perso2, perso1);;
+    afficherPoints();
+    afficherPoints();
 })
 
 let bouton6 = document.querySelector(".bouton6");
 bouton6.addEventListener("click", function() {
-    Direct(perso1);
+    direct(perso1);
     tremblement1();
     eclair2();
-    afficherEVJ1();
-    GameOver(perso1, perso2);
-    GameOver(perso2, perso1);
-    AfficherPoints1();
-    AfficherPoints2();
+    afficherEV();
+    finDeManche(perso1, perso2);
+    finDeManche(perso2, perso1);
+    afficherPoints();
+    afficherPoints();
 })
 
 // -----------------------------event joueur 1
 
 let bouton1 = document.querySelector(".bouton1");
 bouton1.addEventListener("click", function() {
-    Uppercut(perso2);;
+    uppercut(perso2);;
     tremblement2();
     eclair();
-    afficherEVJ2();
-    GameOver(perso1, perso2);
-    GameOver(perso2, perso1);
-    AfficherPoints2();
-    AfficherPoints1();
+    afficherEV();
+    finDeManche(perso1, perso2);
+    finDeManche(perso2, perso1);
+    afficherPoints();
+    afficherPoints();
 })
 
 let bouton2 = document.querySelector(".bouton2");
 bouton2.addEventListener("click", function() {
-    Crochet(perso2);
+    crochet(perso2);
     tremblement2();
     eclair();
-    afficherEVJ2();
-    GameOver(perso1, perso2);
-    GameOver(perso2, perso1);
-    AfficherPoints2();
-    AfficherPoints1();
+    afficherEV();
+    finDeManche(perso1, perso2);
+    finDeManche(perso2, perso1);
+    afficherPoints();
+    afficherPoints();
 })
 
 let bouton3 = document.querySelector(".bouton3");
 bouton3.addEventListener("click", function() {
-    Direct(perso2);;
+    direct(perso2);;
     tremblement2();
     eclair();
-    afficherEVJ2();
-    GameOver(perso1, perso2);
-    GameOver(perso2, perso1);
-    AfficherPoints2();
-    AfficherPoints1();
+    afficherEV();
+    finDeManche(perso1, perso2);
+    finDeManche(perso2, perso1);
+    afficherPoints();
+    afficherPoints();
 })
 
 /*let bonus = document.querySelector(".bonus");
