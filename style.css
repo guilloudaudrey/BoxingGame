@@ -118,8 +118,20 @@
     background: red;
 }*/
     
+    .perso1upper {
+        animation: boxer 0.6s steps(1);
+    }
+    
+    .perso1crochet {
+        animation: boxercrochet 0.6s steps(1);
+    }
+    
+    .perso1direct {
+        animation: boxerdirect 0.5s steps(1);
+    }
+    
     .perso2 {
-        width: 200px;
+        width: 120px;
         height: 200px;
         border-radius: 100px;
         margin: auto;
@@ -130,14 +142,14 @@
     }
     
     .perso1 {
-        width: 200px;
-        height: 200px;
-        border-radius: 100px;
-        margin: auto;
-        top: 100px;
+        top: 50px;
+        left: 300px;
         position: relative;
-        display: flex;
-        justify-content: flex-end;
+        width: 229px;
+        height: 295px;
+        display: inline-block;
+        background: url("sprite1.png") no-repeat;
+        background-position: -12px 0px;
     }
     
     .bouton1,
@@ -271,5 +283,77 @@
         }
         100% {
             opacity: 0
+        }
+    }
+    
+    @keyframes boxer {
+        0% {
+            background-position: -12px 0px;
+        }
+        16% {
+            background-position: -228px 0px;
+        }
+        32% {
+            background-position: -440px 0px;
+        }
+        48% {
+            background-position: -666px 0px;
+        }
+        64% {
+            background-position: -440px 0px;
+        }
+        80% {
+            background-position: -228px 0px;
+        }
+        100% {
+            background-position: -12px 0px;
+        }
+    }
+    
+    @keyframes boxercrochet {
+        0% {
+            background-position: -12px 0px;
+        }
+        16% {
+            background-position: -890px 0px;
+        }
+        32% {
+            background-position: -1120px 0px;
+        }
+        48% {
+            background-position: -1340px 0px;
+        }
+        64% {
+            background-position: -1120px 0px;
+        }
+        80% {
+            background-position: -890px 0px;
+        }
+        100% {
+            background-position: -12px 0px;
+        }
+    }
+    
+    @keyframes boxerdirect {
+        0% {
+            background-position: -12px 0px;
+        }
+        16% {
+            background-position: -228px 0px;
+        }
+        32% {
+            background-position: -1560px 0px;
+        }
+        48% {
+            background-position: -1780px 0px;
+        }
+        64% {
+            background-position: -1560px 0px;
+        }
+        80% {
+            background-position: -228px 0px;
+        }
+        100% {
+            background-position: -12px 0px;
         }
     }

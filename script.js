@@ -164,7 +164,32 @@ function eclair2() {
     })
 }
 
+function uppercutPerso1() {
+    let personnage1 = document.querySelector(".perso1");
+    let classes = personnage1.className;
+    personnage1.classList.add("perso1upper");
+    personnage1.addEventListener('animationend', function() {
+        personnage1.className = classes;
+    })
+}
 
+function crochetPerso1() {
+    let personnage1 = document.querySelector(".perso1");
+    let classes = personnage1.className;
+    personnage1.classList.add("perso1crochet");
+    personnage1.addEventListener('animationend', function() {
+        personnage1.className = classes;
+    })
+}
+
+function directPerso1() {
+    let personnage1 = document.querySelector(".perso1");
+    personnage1.classList.add("boxerdirect");
+    personnage1.classList.add("perso1direct");
+
+
+
+}
 
 //----------------------------------- événements
 
@@ -214,7 +239,8 @@ bouton6.addEventListener("click", function() {
 
 let bouton1 = document.querySelector(".bouton1");
 bouton1.addEventListener("click", function() {
-    uppercut(perso2);;
+    uppercut(perso2);
+    uppercutPerso1();
     tremblement2();
     eclair();
     afficherEV();
@@ -227,6 +253,7 @@ bouton1.addEventListener("click", function() {
 let bouton2 = document.querySelector(".bouton2");
 bouton2.addEventListener("click", function() {
     crochet(perso2);
+    crochetPerso1();
     tremblement2();
     eclair();
     afficherEV();
@@ -238,7 +265,8 @@ bouton2.addEventListener("click", function() {
 
 let bouton3 = document.querySelector(".bouton3");
 bouton3.addEventListener("click", function() {
-    direct(perso2);;
+    direct(perso2);
+    directPerso1();
     tremblement2();
     eclair();
     afficherEV();
