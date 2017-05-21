@@ -230,9 +230,36 @@ function animCrochetPerso2() {
     let classes = personnage2.className;
     personnage2.classList.add("perso2crochet");
     personnage2.addEventListener('animationend', function() {
-        personnage2.className = classe;
+        personnage2.className = classes;
     })
 
+}
+
+function animDirectPerso2() {
+    let personnage2 = document.querySelector(".perso2");
+    let classes = personnage2.className;
+    personnage2.classList.add("perso2direct");
+    personnage2.addEventListener('animationend', function() {
+        personnage2.className = classes;
+    })
+}
+
+function animFeintePerso2() {
+    let personnage2 = document.querySelector(".perso2");
+    let classes = personnage2.className;
+    personnage2.classList.add("perso2feinte");
+    personnage2.addEventListener('animationend', function() {
+        personnage2.className = classes;
+    })
+}
+
+function animCoupPerso2() {
+    let personnage2 = document.querySelector(".perso2");
+    let classes = personnage2.className;
+    personnage2.classList.add("perso2coup");
+    personnage2.addEventListener('animationend', function() {
+        personnage2.className = classes;
+    })
 }
 
 //----------------------------------- événements
@@ -268,6 +295,7 @@ bouton5.addEventListener("click", function(e) {
 let bouton6 = document.querySelector(".bouton6");
 bouton6.addEventListener("click", function() {
     direct(perso1);
+    animDirectPerso2();
     coupPerso1();
     afficherEV();
     afficherPoints();
@@ -281,6 +309,7 @@ let bouton1 = document.querySelector(".bouton1");
 bouton1.addEventListener("click", function() {
     uppercut(perso2);
     uppercutPerso1();
+    animCoupPerso2();
     afficherEV();
     afficherPoints();
     finDeManche(perso1, perso2);
@@ -291,6 +320,7 @@ let bouton2 = document.querySelector(".bouton2");
 bouton2.addEventListener("click", function() {
     crochet(perso2);
     crochetPerso1();
+    animCoupPerso2();
     afficherEV();
     afficherPoints();
     finDeManche(perso1, perso2);
@@ -301,6 +331,7 @@ let bouton3 = document.querySelector(".bouton3");
 bouton3.addEventListener("click", function() {
     direct(perso2);
     directPerso1();
+    animCoupPerso2();
     afficherEV();
     afficherPoints();
     finDeManche(perso1, perso2);

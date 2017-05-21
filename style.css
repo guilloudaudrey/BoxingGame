@@ -22,7 +22,7 @@
     .grandezone {
         padding-top: 20px;
         display: flex;
-        margin: auto;
+        justify-content: center;
     }
     
     .compteurpoints {
@@ -117,7 +117,7 @@
     height: 20px;
     background: red;
 }*/
-    /*classes perso 1*/
+    /*-----------------------------------classes perso 1*/
     
     .perso1upper {
         animation: boxer 0.6s steps(1);
@@ -142,7 +142,7 @@
     .perso1evan {
         animation: boxerevan 0.5s steps(1);
     }
-    /*classes perso 2*/
+    /*-----------------------------classes perso 2*/
     
     .perso2upper {
         animation: advupper 0.5s steps(1);
@@ -150,6 +150,18 @@
     
     .perso2crochet {
         animation: advcrochet 0.5s steps(1);
+    }
+    
+    .perso2direct {
+        animation: advdirect 0.5s steps(1);
+    }
+    
+    .perso2feinte {
+        animation: advfeinte 0.5s steps(1);
+    }
+    
+    .perso2coup {
+        animation: advcoup 0.5s steps(1);
     }
     
     .perso2 {
@@ -232,7 +244,7 @@
         text-align: center;
         background-image: linear-gradient(yellow, white);
         font-family: 'Geo', sans-serif;
-        width: 18%;
+        width: 400px;
         height: 490px;
         padding-top: 20px;
         border-radius: 10px 10px 0 0;
@@ -494,6 +506,78 @@
         }
         80% {
             background-position: -840px -2px;
+        }
+        100% {
+            background-position: -1775px -2px;
+        }
+    }
+    
+    @keyframes advdirect {
+        0% {
+            background-position: -1775px -2px;
+        }
+        16% {
+            background-position: -1555px -2px;
+        }
+        32% {
+            background-position: -110px -2px;
+        }
+        48% {
+            background-position: -1815px -320px;
+        }
+        64% {
+            background-position: -110px -2px;
+        }
+        80% {
+            background-position: -1555px -2px;
+        }
+        100% {
+            background-position: -1775px -2px;
+        }
+    }
+    
+    @keyframes advfeinte {
+        0% {
+            background-position: -1775px -2px;
+        }
+        16% {
+            background-position: -1565px -325px;
+        }
+        32% {
+            background-position: -1345px -325px;
+        }
+        48% {
+            background-position: -1125px -325px;
+        }
+        64% {
+            background-position: -1345px -325px;
+        }
+        80% {
+            background-position: -1565px -325px;
+        }
+        100% {
+            background-position: -1775px -2px;
+        }
+    }
+    
+    @keyframes advcoup {
+        0% {
+            background-position: -1775px -2px;
+        }
+        16% {
+            background-position: -855px -316px;
+        }
+        32% {
+            background-position: -625px -316px;
+        }
+        48% {
+            background-position: -400px -300px;
+        }
+        64% {
+            background-position: -625px -316px;
+        }
+        80% {
+            background-position: -855px -316px;
         }
         100% {
             background-position: -1775px -2px;
