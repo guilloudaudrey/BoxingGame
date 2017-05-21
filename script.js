@@ -25,13 +25,12 @@ function changeJoueur() {
     let bonusbox2 = document.querySelector(".bonusbox2");
     let bonusbox1 = document.querySelector(".bonusbox1");
     if (jeu.turn % 2 === 0) {
-        alert("tour du joueur 1");
         bonusbox2.style.display = "none";
         bonusbox1.style.display = "flex";
     } else {
-        alert("tour du joueur 2");
         bonusbox2.style.display = "flex";
         bonusbox1.style.display = "none";
+
     }
 }
 
@@ -103,7 +102,6 @@ function reinitialiser() {
 function finDeManche(personnage, cible) {
     if (cible.vies < 0) {
         points(personnage);
-        alert("gameover");
         reinitialiser();
         afficherEV();
         addTurn();
@@ -140,12 +138,6 @@ function tremblement2() {
     })
 }
 
-function disparaitre() {
-    let bonus = document.querySelector(".bonus");
-    bonus.remove(bonus);
-
-}
-
 function eclair() {
     let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
@@ -163,6 +155,8 @@ function eclair2() {
         personnage1.className = classes;
     })
 }
+
+// animations perso 1
 
 function uppercutPerso1() {
     let personnage1 = document.querySelector(".perso1");
@@ -184,10 +178,60 @@ function crochetPerso1() {
 
 function directPerso1() {
     let personnage1 = document.querySelector(".perso1");
-    personnage1.classList.add("boxerdirect");
+    let classes = personnage1.className;
     personnage1.classList.add("perso1direct");
+    personnage1.addEventListener('animationend', function() {
+        personnage1.className = classes;
+    })
+}
 
 
+function coupPerso1() {
+    let personnage1 = document.querySelector(".perso1");
+    let classes = personnage1.className;
+    personnage1.classList.add("perso1coup");
+    personnage1.addEventListener('animationend', function() {
+        personnage1.className = classes;
+    })
+}
+
+function etourdPerso1() {
+    let personnage1 = document.querySelector(".perso1");
+    let classes = personnage1.className;
+    personnage1.classList.add("perso1etourd");
+    personnage1.addEventListener('animationend', function() {
+        personnage1.className = classes;
+    })
+}
+
+function evanPerso() {
+    let personnage1 = document.querySelector(".perso1");
+    let classes = personnage1.className;
+    personnage1.classList.add("boxerevan");
+    personnage1.addEventListener('animationend', function() {
+        personnage1.className = classes;
+    })
+}
+
+//animations perso 2
+
+function animUppercutPerso2() {
+    let personnage2 = document.querySelector(".perso2");
+    let classes = personnage2.className;
+    personnage2.classList.add("perso2upper");
+    personnage2.addEventListener('animationend', function() {
+        personnage2.className = classes;
+    })
+
+}
+
+function animCrochetPerso2() {
+    let personnage2 = document.querySelector(".perso2");
+    let classes = personnage2.className;
+    personnage2.classList.add("perso2crochet");
+    personnage2.addEventListener('animationend', function() {
+        personnage2.className = classe;
+    })
 
 }
 
@@ -202,37 +246,33 @@ changeJoueur();
 let bouton4 = document.querySelector(".bouton4");
 bouton4.addEventListener("click", function() {
     uppercut(perso1);
-    tremblement1();
-    eclair2();
+    animUppercutPerso2();
+    etourdPerso1();
     afficherEV();
+    afficherPoints();
     finDeManche(perso1, perso2);
     finDeManche(perso2, perso1);
-    afficherPoints();
-    afficherPoints();
 })
 
 let bouton5 = document.querySelector(".bouton5");
 bouton5.addEventListener("click", function(e) {
     crochet(perso1);
-    tremblement1();
-    eclair2();
+    animCrochetPerso2();
+    coupPerso1();
     afficherEV();
+    afficherPoints();
     finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);;
-    afficherPoints();
-    afficherPoints();
+    finDeManche(perso2, perso1);
 })
 
 let bouton6 = document.querySelector(".bouton6");
 bouton6.addEventListener("click", function() {
     direct(perso1);
-    tremblement1();
-    eclair2();
+    coupPerso1();
     afficherEV();
+    afficherPoints();
     finDeManche(perso1, perso2);
     finDeManche(perso2, perso1);
-    afficherPoints();
-    afficherPoints();
 })
 
 // -----------------------------event joueur 1
@@ -241,39 +281,30 @@ let bouton1 = document.querySelector(".bouton1");
 bouton1.addEventListener("click", function() {
     uppercut(perso2);
     uppercutPerso1();
-    tremblement2();
-    eclair();
     afficherEV();
+    afficherPoints();
     finDeManche(perso1, perso2);
     finDeManche(perso2, perso1);
-    afficherPoints();
-    afficherPoints();
 })
 
 let bouton2 = document.querySelector(".bouton2");
 bouton2.addEventListener("click", function() {
     crochet(perso2);
     crochetPerso1();
-    tremblement2();
-    eclair();
     afficherEV();
+    afficherPoints();
     finDeManche(perso1, perso2);
     finDeManche(perso2, perso1);
-    afficherPoints();
-    afficherPoints();
 })
 
 let bouton3 = document.querySelector(".bouton3");
 bouton3.addEventListener("click", function() {
     direct(perso2);
     directPerso1();
-    tremblement2();
-    eclair();
     afficherEV();
+    afficherPoints();
     finDeManche(perso1, perso2);
     finDeManche(perso2, perso1);
-    afficherPoints();
-    afficherPoints();
 })
 
 /*let bonus = document.querySelector(".bonus");

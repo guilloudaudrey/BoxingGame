@@ -117,6 +117,7 @@
     height: 20px;
     background: red;
 }*/
+    /*classes perso 1*/
     
     .perso1upper {
         animation: boxer 0.6s steps(1);
@@ -130,20 +131,42 @@
         animation: boxerdirect 0.5s steps(1);
     }
     
+    .perso1coup {
+        animation: boxercoup 0.5s steps(1);
+    }
+    
+    .perso1etourd {
+        animation: boxeretourd 0.5s steps(1);
+    }
+    
+    .perso1evan {
+        animation: boxerevan 0.5s steps(1);
+    }
+    /*classes perso 2*/
+    
+    .perso2upper {
+        animation: advupper 0.5s steps(1);
+    }
+    
+    .perso2crochet {
+        animation: advcrochet 0.5s steps(1);
+    }
+    
     .perso2 {
-        width: 120px;
-        height: 200px;
-        border-radius: 100px;
-        margin: auto;
-        top: 100px;
+        width: 229px;
+        height: 295px;
+        top: 40px;
+        left: -80px;
         position: relative;
-        display: flex;
+        display: inline-block;
         justify-content: flex-start;
+        background: url("sprite2.png") no-repeat;
+        background-position: -1775px -2px;
     }
     
     .perso1 {
-        top: 50px;
-        left: 300px;
+        top: 40px;
+        left: 390px;
         position: relative;
         width: 229px;
         height: 295px;
@@ -211,7 +234,7 @@
         font-family: 'Geo', sans-serif;
         width: 18%;
         height: 490px;
-        padding-top: 40px;
+        padding-top: 20px;
         border-radius: 10px 10px 0 0;
     }
     
@@ -219,6 +242,12 @@
     .compteur2 h1 {
         font-family: 'Press Start 2P', cursive;
         text-shadow: 3px 3px 1px white;
+    }
+    
+    .compteurvies1,
+    .compteurvies2 {
+        color: red;
+        font-size: 3em;
     }
     
     #yourHealthBar {
@@ -285,6 +314,7 @@
             opacity: 0
         }
     }
+    /* --------------------------------------- anims perso 1*/
     
     @keyframes boxer {
         0% {
@@ -355,5 +385,117 @@
         }
         100% {
             background-position: -12px 0px;
+        }
+    }
+    
+    @keyframes boxercoup {
+        0% {
+            background-position: -12px 0px;
+        }
+        16% {
+            background-position: -11px -345px;
+        }
+        32% {
+            background-position: -228px -345px;
+        }
+        48% {
+            background-position: -440px -345px;
+        }
+        64% {
+            background-position: -228px -345px;
+        }
+        80% {
+            background-position: -11px -345px;
+        }
+        100% {
+            background-position: -12px 0px;
+        }
+    }
+    
+    @keyframes boxeretourd {
+        0% {
+            background-position: -12px 0px;
+        }
+        16% {
+            background-position: -658px -345px;
+        }
+        32% {
+            background-position: -885px -345px;
+        }
+        48% {
+            background-position: -1095px -345px;
+        }
+        64% {
+            background-position: -885px -345px;
+        }
+        80% {
+            background-position: -658px -345px;
+        }
+        100% {
+            background-position: -12px 0px;
+        }
+    }
+    
+    @keyframes boxerevan {
+        0% {
+            background-position: -12px 0px;
+        }
+        40% {
+            background-position: -1110px -345px;
+        }
+        80% {
+            background-position: -1332px -345px;
+        }
+        100% {
+            background-position: -1555px -345px;
+        }
+    }
+    /*--------------------------------------------anims perso 2*/
+    
+    @keyframes advupper {
+        0% {
+            background-position: -1775px -2px;
+        }
+        16% {
+            background-position: -1555px -2px;
+        }
+        32% {
+            background-position: -1325px -2px;
+        }
+        48% {
+            background-position: -1110px -2px;
+        }
+        64% {
+            background-position: -1325px -2px;
+        }
+        80% {
+            background-position: -1555px -2px;
+        }
+        100% {
+            background-position: -1775px -2px;
+        }
+    }
+    
+    @keyframes advcrochet {
+        0% {
+            background-position: -1775px -2px;
+        }
+        16% {
+            background-position: -840px -2px;
+        }
+        32% {
+            background-position: -590px -2px;
+        }
+        48% {
+            background-position: -380px -2px;
+        }
+        64% {
+            background-position: -590px -2px;
+        }
+        80% {
+            background-position: -840px -2px;
+        }
+        100% {
+            background-position: -1775px -2px;
         }
     }
