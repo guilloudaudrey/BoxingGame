@@ -1,6 +1,7 @@
     body {
         padding-top: 10px;
         background: black;
+        margin: auto;
     }
     
     body>h1 {
@@ -22,7 +23,9 @@
     .grandezone {
         padding-top: 20px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        width: 90%;
+        margin: auto;
     }
     
     .compteurpoints {
@@ -61,7 +64,7 @@
     }
     
     .ring {
-        width: 1100px;
+        width: 900px;
         height: 420px;
         background: url(boxingring.png) no-repeat center;
         margin: auto;
@@ -76,15 +79,15 @@
         width: 550px;
     }
     
-    .bonusbox {
-        width: 1100px;
+    .buttonbox {
+        width: 900px;
         height: 110px;
         margin: auto;
         background: lightgrey;
         display: flex;
     }
     
-    .bonusbox1 {
+    .buttonbox1 {
         width: 550px;
         height: 110px;
         margin: auto;
@@ -92,83 +95,37 @@
         display: flex;
     }
     
-    .bonusbox1 p {
-        position: relative;
-        left: 0;
-        top: 35px;
-        padding-bottom: 20px;
-    }
-    
-    .bonusbox2 p {
-        position: relative;
-        top: 35px;
-        padding-bottom: 20px;
-    }
-    
-    .bonusbox2 {
+    .buttonbox2 {
         width: 550px;
         height: 110px;
         margin: auto;
         background: darkgrey;
         display: flex;
     }
+    
+    .buttonbox1 p {
+        position: relative;
+        left: 0;
+        top: 35px;
+        padding-bottom: 20px;
+    }
+    
+    .buttonbox2 p {
+        position: relative;
+        top: 35px;
+        padding-bottom: 20px;
+    }
     /*.bonus {
     width: 20px;
     height: 20px;
     background: red;
 }*/
-    /*-----------------------------------classes perso 1*/
-    
-    .perso1upper {
-        animation: boxer 0.6s steps(1);
-    }
-    
-    .perso1crochet {
-        animation: boxercrochet 0.6s steps(1);
-    }
-    
-    .perso1direct {
-        animation: boxerdirect 0.5s steps(1);
-    }
-    
-    .perso1coup {
-        animation: boxercoup 0.5s steps(1);
-    }
-    
-    .perso1etourd {
-        animation: boxeretourd 0.5s steps(1);
-    }
-    
-    .perso1evan {
-        animation: boxerevan 0.5s steps(1);
-    }
-    /*-----------------------------classes perso 2*/
-    
-    .perso2upper {
-        animation: advupper 0.5s steps(1);
-    }
-    
-    .perso2crochet {
-        animation: advcrochet 0.5s steps(1);
-    }
-    
-    .perso2direct {
-        animation: advdirect 0.5s steps(1);
-    }
-    
-    .perso2feinte {
-        animation: advfeinte 0.5s steps(1);
-    }
-    
-    .perso2coup {
-        animation: advcoup 0.5s steps(1);
-    }
     
     .perso2 {
         width: 229px;
         height: 295px;
         top: 40px;
-        left: -80px;
+        left: -70px;
         position: relative;
         display: inline-block;
         justify-content: flex-start;
@@ -178,7 +135,7 @@
     
     .perso1 {
         top: 40px;
-        left: 390px;
+        left: 300px;
         position: relative;
         width: 229px;
         height: 295px;
@@ -244,8 +201,8 @@
         text-align: center;
         background-image: linear-gradient(yellow, white);
         font-family: 'Geo', sans-serif;
-        width: 400px;
-        height: 490px;
+        width: 500px;
+        height: 510px;
         padding-top: 20px;
         border-radius: 10px 10px 0 0;
     }
@@ -262,15 +219,6 @@
         font-size: 3em;
     }
     
-    #yourHealthBar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 20px;
-        width: 100px;
-        background: lightgreen;
-    }
-    
     .tremble {
         animation-name: shake;
         animation-duration: 0.2s;
@@ -284,6 +232,112 @@
     .disparaitre {
         animation-name: fade;
         animation-duration: 1s;
+    }
+    /*--------------------------partie questions*/
+    
+    .questions {
+        height: 160px;
+        width: 90%;
+        background: darkgrey;
+        margin: auto;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .question {
+        height: 80px;
+        width: 40%;
+        border-radius: 10px;
+        background: lightgray;
+        margin-left: 200px;
+        font-family: 'Press Start 2P', cursive;
+        text-align: center;
+        line-height: 50px;
+    }
+    
+    .inputtext {
+        height: 50px;
+        width: 10%;
+    }
+    
+    .inputsubmit {
+        height: 80px;
+        width: 10%;
+        font-family: 'Press Start 2P', cursive;
+        margin-right: 200px;
+        background: red;
+        color: white;
+    }
+    
+    .inputsubmit2 {
+        height: 80px;
+        width: 10%;
+        font-family: 'Press Start 2P', cursive;
+        margin-right: 200px;
+        background: blue;
+        color: white;
+        display: none;
+    }
+    
+    .inputsubmit3 {
+        height: 80px;
+        width: 10%;
+        font-family: 'Press Start 2P', cursive;
+        margin-right: 200px;
+        background: green;
+        color: white;
+        display: none;
+    }
+    /*-----------------------------------classes perso 1*/
+    
+    .perso1upper {
+        animation: boxer 0.6s steps(1);
+    }
+    
+    .perso1crochet {
+        animation: boxercrochet 0.6s steps(1);
+    }
+    
+    .perso1direct {
+        animation: boxerdirect 0.5s steps(1);
+    }
+    
+    .perso1coup {
+        animation: boxercoup 0.5s steps(1);
+    }
+    
+    .perso1etourd {
+        animation: boxeretourd 0.5s steps(1);
+    }
+    
+    .perso1faint {
+        animation: boxerfaint 0.5s steps(1);
+    }
+    /*-----------------------------classes perso 2*/
+    
+    .perso2upper {
+        animation: advupper 0.5s steps(1);
+    }
+    
+    .perso2crochet {
+        animation: advcrochet 0.5s steps(1);
+    }
+    
+    .perso2direct {
+        animation: advdirect 0.5s steps(1);
+    }
+    
+    .perso2feinte {
+        animation: advfeinte 0.5s steps(1);
+    }
+    
+    .perso2coup {
+        animation: advcoup 0.5s steps(1);
+    }
+    
+    .perso2faint {
+        animation: advfaint 0.5s steps(1);
     }
     
     @keyframes shake {
@@ -311,19 +365,19 @@
             opacity: 1;
         }
         100% {
-            opacity: 0;
+            opacity: 0.5;
         }
     }
     
     @keyframes eclair {
         0% {
-            opacity: 0;
+            opacity: 0.1;
         }
         50% {
             opacity: 1;
         }
         100% {
-            opacity: 0
+            opacity: 0.1;
         }
     }
     /* --------------------------------------- anims perso 1*/
@@ -448,7 +502,7 @@
         }
     }
     
-    @keyframes boxerevan {
+    @keyframes boxerfaint {
         0% {
             background-position: -12px 0px;
         }
@@ -581,5 +635,20 @@
         }
         100% {
             background-position: -1775px -2px;
+        }
+    }
+    
+    @keyframes advfaint {
+        0% {
+            background-position: -1775px -2px;
+        }
+        40% {
+            background-position: -625px -316px;
+        }
+        80% {
+            background-position: -125px -316px;
+        }
+        100% {
+            background-position: -1815px -620px;
         }
     }
