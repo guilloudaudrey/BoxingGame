@@ -1,677 +1,693 @@
-    body {
-        padding-top: 10px;
-        background: black;
-        margin: auto;
-    }
-    
-    body>h1 {
-        font-family: 'Press Start 2P', cursive;
-        text-shadow: 3px 3px 1px white;
-        color: red;
-        padding-bottom: 25px;
-        text-align: center;
-        font-size: 4em;
-    }
-    
-    body>h2 {
-        color: white;
-        text-align: center;
-        font-family: 'Press Start 2P', cursive;
-        animation: eclair 2s infinite;
-    }
-    
-    .grandezone {
-        padding-top: 20px;
-        display: flex;
-        justify-content: space-between;
-        width: 90%;
-        margin: auto;
-    }
-    
-    .compteurpoints {
-        width: 15%;
-        height: 50px;
-        background: white;
-        border-radius: 10px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: auto;
-    }
-    
-    .compteurJ1,
-    .compteurJ2 {
-        text-align: center;
-        font-family: 'Press Start 2P', cursive;
-    }
-    
-    .pointsJ1 {
-        width: 45%;
-        background: lightgray;
-        border-radius: 5px;
-        height: 40px;
-    }
-    
-    .pointsJ2 {
-        width: 45%;
-        background: lightgray;
-        border-radius: 5px;
-        height: 40px;
-    }
-    
-    .zone {
-        width: 70%;
-    }
-    
-    .ring {
-        width: 900px;
-        height: 420px;
-        background: url(boxingring.png) no-repeat center;
-        margin: auto;
-        display: flex;
-    }
-    
-    .ring1 {
-        width: 550px;
-    }
-    
-    .ring2 {
-        width: 550px;
-    }
-    
-    .buttonbox {
-        width: 900px;
-        height: 110px;
-        margin: auto;
-        background: lightgrey;
-        display: flex;
-    }
-    
-    .buttonbox1 {
-        width: 550px;
-        height: 110px;
-        margin: auto;
-        background: grey;
-        display: flex;
-    }
-    
-    .buttonbox2 {
-        width: 550px;
-        height: 110px;
-        margin: auto;
-        background: darkgrey;
-        display: flex;
-    }
-    
-    .buttonbox1 p {
-        position: relative;
-        left: 0;
-        top: 35px;
-        padding-bottom: 20px;
-    }
-    
-    .buttonbox2 p {
-        position: relative;
-        top: 35px;
-        padding-bottom: 20px;
-    }
-    
-    .perso2 {
-        width: 229px;
-        height: 295px;
-        top: 40px;
-        left: -70px;
-        position: relative;
-        display: inline-block;
-        justify-content: flex-start;
-        background: url("sprite2.png") no-repeat;
-        background-position: -1775px -2px;
-    }
-    
-    .perso1 {
-        top: 40px;
-        left: 300px;
-        position: relative;
-        width: 229px;
-        height: 295px;
-        display: inline-block;
-        background: url("sprite1.png") no-repeat;
-        background-position: -12px 0px;
-    }
-    
-    .bouton1,
-    .bouton4 {
-        width: 40px;
-        height: 40px;
-        border-radius: 100px;
-        background: red;
-        border: 5px solid darkred;
-        margin: auto;
-        box-shadow: 3px 2px 1px black;
-    }
-    
-    .bouton2,
-    .bouton5 {
-        width: 40px;
-        height: 40px;
-        border-radius: 100px;
-        background: blue;
-        border: 5px solid darkblue;
-        margin: auto;
-        box-shadow: 3px 2px 1px black;
-    }
-    
-    .bouton3,
-    .bouton6 {
-        width: 40px;
-        height: 40px;
-        border-radius: 100px;
-        background: green;
-        border: 5px solid darkgreen;
-        margin: auto;
-        box-shadow: 3px 2px 1px black;
-    }
-    
-    .bouton1:active,
-    .bouton4:active {
-        background: darkred;
-        border: 5px solid red;
-    }
-    
-    .bouton2:active,
-    .bouton5:active {
-        background: darkblue;
-        border: 5px solid blue;
-    }
-    
-    .bouton3:active,
-    .bouton6:active {
-        background: darkgreen;
-        border: 5px solid green;
-    }
-    
-    .compteur1,
-    .compteur2 {
-        margin: auto;
-        text-align: center;
-        background-image: linear-gradient(yellow, white);
-        font-family: 'Geo', sans-serif;
-        width: 500px;
-        height: 510px;
-        padding-top: 20px;
-        border-radius: 10px 10px 0 0;
-    }
-    
-    .compteur1 h1,
-    .compteur2 h1 {
-        font-family: 'Press Start 2P', cursive;
-        text-shadow: 3px 3px 1px white;
-    }
-    
-    .compteurvies1,
-    .compteurvies2 {
-        color: red;
-        font-size: 3em;
-    }
-    
-    .tremble {
-        animation-name: shake;
-        animation-duration: 0.2s;
-    }
-    
-    .eclair {
-        animation-name: eclair;
-        animation-duration: 0.1s;
-    }
-    
-    .disparaitre {
-        animation-name: fade;
-        animation-duration: 1s;
-    }
-    /*--------------------------partie questions*/
-    
-    .questions {
-        height: 160px;
-        width: 90%;
-        background: darkgrey;
-        margin: auto;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    
-    .question {
-        height: 80px;
-        width: 40%;
-        border-radius: 10px;
-        background: lightgray;
-        margin-left: 200px;
-        font-family: 'Press Start 2P', cursive;
-        text-align: center;
-        line-height: 50px;
-    }
-    
-    .inputtext {
-        height: 50px;
-        width: 10%;
-    }
-    
-    .inputsubmit {
-        height: 80px;
-        width: 10%;
-        font-family: 'Press Start 2P', cursive;
-        margin-right: 200px;
-        background: red;
-        color: white;
-    }
-    
-    .inputsubmit2 {
-        height: 80px;
-        width: 10%;
-        font-family: 'Press Start 2P', cursive;
-        margin-right: 200px;
-        background: blue;
-        color: white;
-        display: none;
-    }
-    
-    .inputsubmit3 {
-        height: 80px;
-        width: 10%;
-        font-family: 'Press Start 2P', cursive;
-        margin-right: 200px;
-        background: green;
-        color: white;
-        display: none;
-    }
-    /*-----------------------------------classes perso 1*/
-    
-    .perso1upper {
-        animation: boxer 0.6s steps(1);
-    }
-    
-    .perso1crochet {
-        animation: boxercrochet 0.6s steps(1);
-    }
-    
-    .perso1direct {
-        animation: boxerdirect 0.5s steps(1);
-    }
-    
-    .perso1coup {
-        animation: boxercoup 0.5s steps(1);
-    }
-    
-    .perso1feinte {
-        animation: boxerfeinte 0.5s steps(1);
-    }
-    
-    .perso1etourd {
-        animation: boxeretourd 0.5s steps(1);
-    }
-    
-    .perso1faint {
-        animation: boxerfaint 0.5s steps(1);
-    }
-    /*-----------------------------classes perso 2*/
-    
-    .perso2upper {
-        animation: advupper 0.5s steps(1);
-    }
-    
-    .perso2crochet {
-        animation: advcrochet 0.5s steps(1);
-    }
-    
-    .perso2direct {
-        animation: advdirect 0.5s steps(1);
-    }
-    
-    .perso2feinte {
-        animation: advfeinte 0.5s steps(1);
-    }
-    
-    .perso2coup {
-        animation: advcoup 0.5s steps(1);
-    }
-    
-    .perso2faint {
-        animation: advfaint 0.5s steps(1);
-    }
-    
-    @keyframes shake {
-        10%,
-        90% {
-            transform: translate3d(-50px, 0, 0);
-        }
-        20%,
-        80% {
-            transform: translate3d(50px, 0, 0);
-        }
-        30%,
-        50%,
-        70% {
-            transform: translate3d(-50px, 0, 0);
-        }
-        40%,
-        60% {
-            transform: translate3d(50px, 0, 0);
-        }
-    }
-    
-    @keyframes fade {
-        0% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0.5;
-        }
-    }
-    
-    @keyframes eclair {
-        0% {
-            opacity: 0.1;
-        }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0.1;
-        }
-    }
-    /* --------------------------------------- anims perso 1*/
-    
-    @keyframes boxer {
-        0% {
-            background-position: -12px 0px;
-        }
-        16% {
-            background-position: -228px 0px;
-        }
-        32% {
-            background-position: -440px 0px;
-        }
-        48% {
-            background-position: -666px 0px;
-        }
-        64% {
-            background-position: -440px 0px;
-        }
-        80% {
-            background-position: -228px 0px;
-        }
-        100% {
-            background-position: -12px 0px;
-        }
-    }
-    
-    @keyframes boxercrochet {
-        0% {
-            background-position: -12px 0px;
-        }
-        16% {
-            background-position: -890px 0px;
-        }
-        32% {
-            background-position: -1120px 0px;
-        }
-        48% {
-            background-position: -1340px 0px;
-        }
-        64% {
-            background-position: -1120px 0px;
-        }
-        80% {
-            background-position: -890px 0px;
-        }
-        100% {
-            background-position: -12px 0px;
-        }
-    }
-    
-    @keyframes boxerdirect {
-        0% {
-            background-position: -12px 0px;
-        }
-        16% {
-            background-position: -228px 0px;
-        }
-        32% {
-            background-position: -1560px 0px;
-        }
-        48% {
-            background-position: -1780px 0px;
-        }
-        64% {
-            background-position: -1560px 0px;
-        }
-        80% {
-            background-position: -228px 0px;
-        }
-        100% {
-            background-position: -12px 0px;
-        }
-    }
-    
-    @keyframes boxercoup {
-        0% {
-            background-position: -12px 0px;
-        }
-        16% {
-            background-position: -660px -345px;
-        }
-        32% {
-            background-position: -900px -345px;
-        }
-        48% {
-            background-position: -1100px -345px;
-        }
-        64% {
-            background-position: -900px -345px;
-        }
-        80% {
-            background-position: -660px -345px;
-        }
-        100% {
-            background-position: -12px 0px;
-        }
-    }
-    
-    @keyframes boxerfeinte {
-        0% {
-            background-position: -12px 0px;
-        }
-        16% {
-            background-position: -11px -345px;
-        }
-        32% {
-            background-position: -228px -345px;
-        }
-        48% {
-            background-position: -440px -345px;
-        }
-        64% {
-            background-position: -228px -345px;
-        }
-        80% {
-            background-position: -11px -345px;
-        }
-        100% {
-            background-position: -12px 0px;
-        }
-    }
-    
-    @keyframes boxeretourd {
-        0% {
-            background-position: -12px 0px;
-        }
-        16% {
-            background-position: -658px -345px;
-        }
-        32% {
-            background-position: -885px -345px;
-        }
-        48% {
-            background-position: -1095px -345px;
-        }
-        64% {
-            background-position: -885px -345px;
-        }
-        80% {
-            background-position: -658px -345px;
-        }
-        100% {
-            background-position: -12px 0px;
-        }
-    }
-    
-    @keyframes boxerfaint {
-        0% {
-            background-position: -12px 0px;
-        }
-        40% {
-            background-position: -1110px -345px;
-        }
-        80% {
-            background-position: -1332px -345px;
-        }
-        100% {
-            background-position: -1555px -345px;
-        }
-    }
-    /*--------------------------------------------anims perso 2*/
-    
-    @keyframes advupper {
-        0% {
-            background-position: -1775px -2px;
-        }
-        16% {
-            background-position: -1555px -2px;
-        }
-        32% {
-            background-position: -1325px -2px;
-        }
-        48% {
-            background-position: -1110px -2px;
-        }
-        64% {
-            background-position: -1325px -2px;
-        }
-        80% {
-            background-position: -1555px -2px;
-        }
-        100% {
-            background-position: -1775px -2px;
-        }
-    }
-    
-    @keyframes advcrochet {
-        0% {
-            background-position: -1775px -2px;
-        }
-        16% {
-            background-position: -840px -2px;
-        }
-        32% {
-            background-position: -590px -2px;
-        }
-        48% {
-            background-position: -380px -2px;
-        }
-        64% {
-            background-position: -590px -2px;
-        }
-        80% {
-            background-position: -840px -2px;
-        }
-        100% {
-            background-position: -1775px -2px;
-        }
-    }
-    
-    @keyframes advdirect {
-        0% {
-            background-position: -1775px -2px;
-        }
-        16% {
-            background-position: -1555px -2px;
-        }
-        32% {
-            background-position: -110px -2px;
-        }
-        48% {
-            background-position: -1815px -320px;
-        }
-        64% {
-            background-position: -110px -2px;
-        }
-        80% {
-            background-position: -1555px -2px;
-        }
-        100% {
-            background-position: -1775px -2px;
-        }
-    }
-    
-    @keyframes advfeinte {
-        0% {
-            background-position: -1775px -2px;
-        }
-        16% {
-            background-position: -1565px -325px;
-        }
-        32% {
-            background-position: -1345px -325px;
-        }
-        48% {
-            background-position: -1125px -325px;
-        }
-        64% {
-            background-position: -1345px -325px;
-        }
-        80% {
-            background-position: -1565px -325px;
-        }
-        100% {
-            background-position: -1775px -2px;
-        }
-    }
-    
-    @keyframes advcoup {
-        0% {
-            background-position: -1775px -2px;
-        }
-        16% {
-            background-position: -855px -316px;
-        }
-        32% {
-            background-position: -625px -316px;
-        }
-        48% {
-            background-position: -400px -300px;
-        }
-        64% {
-            background-position: -625px -316px;
-        }
-        80% {
-            background-position: -855px -316px;
-        }
-        100% {
-            background-position: -1775px -2px;
-        }
-    }
-    
-    @keyframes advfaint {
-        0% {
-            background-position: -1775px -2px;
-        }
-        40% {
-            background-position: -625px -316px;
-        }
-        80% {
-            background-position: -125px -316px;
-        }
-        100% {
-            background-position: -1815px -620px;
-        }
-    }
+     @font-face {
+         font-family: 'VisitorTT1BRK';
+         src: url('fonts/VisitorTT1BRK.eot?#iefix') format('embedded-opentype'), url('fonts/VisitorTT1BRK.woff') format('woff'), url('fonts/VisitorTT1BRK.ttf') format('truetype'), url('fonts/VisitorTT1BRK.svg#VisitorTT1BRK') format('svg');
+         font-weight: normal;
+         font-style: normal;
+     }
+     
+     body {
+         padding-top: 10px;
+         background: black;
+         margin: auto;
+     }
+     
+     body>h1 {
+         font-family: 'VisitorTT1BRK';
+         text-shadow: 3px 3px 1px white;
+         color: red;
+         padding-bottom: 25px;
+         text-align: center;
+         font-size: 4em;
+     }
+     
+     body>h2 {
+         color: white;
+         text-align: center;
+         font-family: 'Press Start 2P', cursive;
+         animation: eclair 2s infinite;
+     }
+     
+     h3 {
+         font-size: 2em;
+     }
+     
+     .grandezone {
+         padding-top: 20px;
+         display: flex;
+         justify-content: center;
+         width: 90%;
+         margin: auto;
+     }
+     
+     .compteurpoints {
+         width: 15%;
+         height: 50px;
+         background: white;
+         border-radius: 10px;
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+         margin: auto;
+     }
+     
+     .compteurJ1,
+     .compteurJ2 {
+         text-align: center;
+         font-family: 'Press Start 2P', cursive;
+     }
+     
+     .pointsJ1 {
+         width: 45%;
+         background: lightgray;
+         border-radius: 5px;
+         height: 40px;
+     }
+     
+     .pointsJ2 {
+         width: 45%;
+         background: lightgray;
+         border-radius: 5px;
+         height: 40px;
+     }
+     
+     .zone {
+         width: 70%;
+     }
+     
+     .ring {
+         width: 900px;
+         height: 420px;
+         background: url(boxingring.png) no-repeat center;
+         margin: auto;
+         display: flex;
+     }
+     
+     .ring1 {
+         width: 550px;
+     }
+     
+     .ring2 {
+         width: 550px;
+     }
+     
+     .buttonbox {
+         width: 900px;
+         height: 110px;
+         margin: auto;
+         background: lightgrey;
+         display: flex;
+     }
+     
+     .buttonbox1 {
+         width: 550px;
+         height: 110px;
+         margin: auto;
+         background: grey;
+         display: flex;
+     }
+     
+     .buttonbox2 {
+         width: 550px;
+         height: 110px;
+         margin: auto;
+         background: darkgrey;
+         display: flex;
+     }
+     
+     .buttonbox1 p {
+         position: relative;
+         left: 0;
+         top: 35px;
+         padding-bottom: 20px;
+     }
+     
+     .buttonbox2 p {
+         position: relative;
+         top: 35px;
+         padding-bottom: 20px;
+     }
+     
+     .perso2 {
+         width: 229px;
+         height: 295px;
+         top: 20px;
+         left: -70px;
+         position: relative;
+         display: inline-block;
+         justify-content: flex-start;
+         background: url("sprite2.png") no-repeat;
+         background-position: -1775px -2px;
+     }
+     
+     .perso1 {
+         top: 20px;
+         left: 300px;
+         position: relative;
+         width: 229px;
+         height: 295px;
+         display: inline-block;
+         background: url("sprite1.png") no-repeat;
+         background-position: -12px 0px;
+     }
+     
+     .bouton1,
+     .bouton4 {
+         width: 40px;
+         height: 40px;
+         border-radius: 100px;
+         background: red;
+         border: 5px solid darkred;
+         margin: auto;
+         box-shadow: 3px 2px 1px black;
+     }
+     
+     .bouton2,
+     .bouton5 {
+         width: 40px;
+         height: 40px;
+         border-radius: 100px;
+         background: blue;
+         border: 5px solid darkblue;
+         margin: auto;
+         box-shadow: 3px 2px 1px black;
+     }
+     
+     .bouton3,
+     .bouton6 {
+         width: 40px;
+         height: 40px;
+         border-radius: 100px;
+         background: green;
+         border: 5px solid darkgreen;
+         margin: auto;
+         box-shadow: 3px 2px 1px black;
+     }
+     
+     .bouton1:active,
+     .bouton4:active {
+         background: darkred;
+         border: 5px solid red;
+     }
+     
+     .bouton2:active,
+     .bouton5:active {
+         background: darkblue;
+         border: 5px solid blue;
+     }
+     
+     .bouton3:active,
+     .bouton6:active {
+         background: darkgreen;
+         border: 5px solid green;
+     }
+     
+     .compteur1,
+     .compteur2 {
+         margin: auto;
+         text-align: center;
+         background-image: linear-gradient(yellow, white);
+         font-family: 'Geo', sans-serif;
+         width: 500px;
+         height: 510px;
+         padding-top: 20px;
+         border-radius: 10px 10px 0 0;
+     }
+     
+     .compteur1 h1,
+     .compteur2 h1 {
+         font-family: 'Press Start 2P', cursive;
+         text-shadow: 3px 3px 1px white;
+     }
+     
+     .compteur1 p,
+     .compteur2 p {
+         font-size: 2em;
+     }
+     
+     .compteurvies1,
+     .compteurvies2 {
+         color: red;
+         font-size: 3em;
+     }
+     
+     .tremble {
+         animation-name: shake;
+         animation-duration: 0.2s;
+     }
+     
+     .eclair {
+         animation-name: eclair;
+         animation-duration: 0.1s;
+     }
+     
+     .disparaitre {
+         animation-name: fade;
+         animation-duration: 1s;
+     }
+     /*--------------------------partie questions*/
+     
+     .questions {
+         height: 160px;
+         width: 90%;
+         background: darkgrey;
+         margin: auto;
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+     }
+     
+     .question {
+         height: 80px;
+         width: 40%;
+         border-radius: 10px;
+         background: lightgray;
+         margin-left: 200px;
+         font-family: 'Press Start 2P', cursive;
+         text-align: center;
+         line-height: 50px;
+     }
+     
+     .inputtext {
+         height: 50px;
+         width: 10%;
+     }
+     
+     .inputsubmit {
+         height: 80px;
+         width: 10%;
+         font-family: 'Press Start 2P', cursive;
+         margin-right: 200px;
+         background: red;
+         color: white;
+     }
+     
+     .inputsubmit2 {
+         height: 80px;
+         width: 10%;
+         font-family: 'Press Start 2P', cursive;
+         margin-right: 200px;
+         background: blue;
+         color: white;
+         display: none;
+     }
+     
+     .inputsubmit3 {
+         height: 80px;
+         width: 10%;
+         font-family: 'Press Start 2P', cursive;
+         margin-right: 200px;
+         background: green;
+         color: white;
+         display: none;
+     }
+     /*-----------------------------------classes perso 1*/
+     
+     .perso1upper {
+         animation: boxer 0.6s steps(1);
+     }
+     
+     .perso1crochet {
+         animation: boxercrochet 0.6s steps(1);
+     }
+     
+     .perso1direct {
+         animation: boxerdirect 0.5s steps(1);
+     }
+     
+     .perso1coup {
+         animation: boxercoup 0.5s steps(1);
+     }
+     
+     .perso1feinte {
+         animation: boxerfeinte 0.5s steps(1);
+     }
+     
+     .perso1etourd {
+         animation: boxeretourd 0.5s steps(1);
+     }
+     
+     .perso1faint {
+         animation: boxerfaint 0.5s steps(1);
+     }
+     /*-----------------------------classes perso 2*/
+     
+     .perso2upper {
+         animation: advupper 0.5s steps(1);
+     }
+     
+     .perso2crochet {
+         animation: advcrochet 0.5s steps(1);
+     }
+     
+     .perso2direct {
+         animation: advdirect 0.5s steps(1);
+     }
+     
+     .perso2feinte {
+         animation: advfeinte 0.5s steps(1);
+     }
+     
+     .perso2coup {
+         animation: advcoup 0.5s steps(1);
+     }
+     
+     .perso2faint {
+         animation: advfaint 0.5s steps(1);
+     }
+     
+     @keyframes shake {
+         10%,
+         90% {
+             transform: translate3d(-50px, 0, 0);
+         }
+         20%,
+         80% {
+             transform: translate3d(50px, 0, 0);
+         }
+         30%,
+         50%,
+         70% {
+             transform: translate3d(-50px, 0, 0);
+         }
+         40%,
+         60% {
+             transform: translate3d(50px, 0, 0);
+         }
+     }
+     
+     @keyframes fade {
+         0% {
+             opacity: 1;
+         }
+         100% {
+             opacity: 0.5;
+         }
+     }
+     
+     @keyframes eclair {
+         0% {
+             opacity: 0.1;
+         }
+         50% {
+             opacity: 1;
+         }
+         100% {
+             opacity: 0.1;
+         }
+     }
+     /* --------------------------------------- anims perso 1*/
+     
+     @keyframes boxer {
+         0% {
+             background-position: -12px 0px;
+         }
+         16% {
+             background-position: -228px 0px;
+         }
+         32% {
+             background-position: -440px 0px;
+         }
+         48% {
+             background-position: -666px 0px;
+         }
+         64% {
+             background-position: -440px 0px;
+         }
+         80% {
+             background-position: -228px 0px;
+         }
+         100% {
+             background-position: -12px 0px;
+         }
+     }
+     
+     @keyframes boxercrochet {
+         0% {
+             background-position: -12px 0px;
+         }
+         16% {
+             background-position: -890px 0px;
+         }
+         32% {
+             background-position: -1120px 0px;
+         }
+         48% {
+             background-position: -1340px 0px;
+         }
+         64% {
+             background-position: -1120px 0px;
+         }
+         80% {
+             background-position: -890px 0px;
+         }
+         100% {
+             background-position: -12px 0px;
+         }
+     }
+     
+     @keyframes boxerdirect {
+         0% {
+             background-position: -12px 0px;
+         }
+         16% {
+             background-position: -228px 0px;
+         }
+         32% {
+             background-position: -1560px 0px;
+         }
+         48% {
+             background-position: -1780px 0px;
+         }
+         64% {
+             background-position: -1560px 0px;
+         }
+         80% {
+             background-position: -228px 0px;
+         }
+         100% {
+             background-position: -12px 0px;
+         }
+     }
+     
+     @keyframes boxercoup {
+         0% {
+             background-position: -12px 0px;
+         }
+         16% {
+             background-position: -660px -345px;
+         }
+         32% {
+             background-position: -900px -345px;
+         }
+         48% {
+             background-position: -1100px -345px;
+         }
+         64% {
+             background-position: -900px -345px;
+         }
+         80% {
+             background-position: -660px -345px;
+         }
+         100% {
+             background-position: -12px 0px;
+         }
+     }
+     
+     @keyframes boxerfeinte {
+         0% {
+             background-position: -12px 0px;
+         }
+         16% {
+             background-position: -11px -345px;
+         }
+         32% {
+             background-position: -228px -345px;
+         }
+         48% {
+             background-position: -440px -345px;
+         }
+         64% {
+             background-position: -228px -345px;
+         }
+         80% {
+             background-position: -11px -345px;
+         }
+         100% {
+             background-position: -12px 0px;
+         }
+     }
+     
+     @keyframes boxeretourd {
+         0% {
+             background-position: -12px 0px;
+         }
+         16% {
+             background-position: -658px -345px;
+         }
+         32% {
+             background-position: -885px -345px;
+         }
+         48% {
+             background-position: -1095px -345px;
+         }
+         64% {
+             background-position: -885px -345px;
+         }
+         80% {
+             background-position: -658px -345px;
+         }
+         100% {
+             background-position: -12px 0px;
+         }
+     }
+     
+     @keyframes boxerfaint {
+         0% {
+             background-position: -12px 0px;
+         }
+         40% {
+             background-position: -1110px -345px;
+         }
+         80% {
+             background-position: -1332px -345px;
+         }
+         100% {
+             background-position: -1555px -345px;
+         }
+     }
+     /*--------------------------------------------anims perso 2*/
+     
+     @keyframes advupper {
+         0% {
+             background-position: -1775px -2px;
+         }
+         16% {
+             background-position: -1555px -2px;
+         }
+         32% {
+             background-position: -1325px -2px;
+         }
+         48% {
+             background-position: -1110px -2px;
+         }
+         64% {
+             background-position: -1325px -2px;
+         }
+         80% {
+             background-position: -1555px -2px;
+         }
+         100% {
+             background-position: -1775px -2px;
+         }
+     }
+     
+     @keyframes advcrochet {
+         0% {
+             background-position: -1775px -2px;
+         }
+         16% {
+             background-position: -840px -2px;
+         }
+         32% {
+             background-position: -590px -2px;
+         }
+         48% {
+             background-position: -380px -2px;
+         }
+         64% {
+             background-position: -590px -2px;
+         }
+         80% {
+             background-position: -840px -2px;
+         }
+         100% {
+             background-position: -1775px -2px;
+         }
+     }
+     
+     @keyframes advdirect {
+         0% {
+             background-position: -1775px -2px;
+         }
+         16% {
+             background-position: -1555px -2px;
+         }
+         32% {
+             background-position: -110px -2px;
+         }
+         48% {
+             background-position: -1815px -320px;
+         }
+         64% {
+             background-position: -110px -2px;
+         }
+         80% {
+             background-position: -1555px -2px;
+         }
+         100% {
+             background-position: -1775px -2px;
+         }
+     }
+     
+     @keyframes advfeinte {
+         0% {
+             background-position: -1775px -2px;
+         }
+         16% {
+             background-position: -1565px -325px;
+         }
+         32% {
+             background-position: -1345px -325px;
+         }
+         48% {
+             background-position: -1125px -325px;
+         }
+         64% {
+             background-position: -1345px -325px;
+         }
+         80% {
+             background-position: -1565px -325px;
+         }
+         100% {
+             background-position: -1775px -2px;
+         }
+     }
+     
+     @keyframes advcoup {
+         0% {
+             background-position: -1775px -2px;
+         }
+         16% {
+             background-position: -855px -316px;
+         }
+         32% {
+             background-position: -625px -316px;
+         }
+         48% {
+             background-position: -400px -300px;
+         }
+         64% {
+             background-position: -625px -316px;
+         }
+         80% {
+             background-position: -855px -316px;
+         }
+         100% {
+             background-position: -1775px -2px;
+         }
+     }
+     
+     @keyframes advfaint {
+         0% {
+             background-position: -1775px -2px;
+         }
+         40% {
+             background-position: -625px -316px;
+         }
+         80% {
+             background-position: -125px -316px;
+         }
+         100% {
+             background-position: -1815px -620px;
+         }
+     }

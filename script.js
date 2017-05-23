@@ -2,7 +2,6 @@
 let a = Math.floor(Math.random() * 11);
 let b = Math.floor(Math.random() * 11);
 let c = a * b;
-let personnage2 = document.querySelector(".perso2");
 
 // ----------------------------objets
 "use strict";
@@ -13,14 +12,14 @@ let jeu = {
 
 let perso1 = {
     name: "A",
-    energie: 4,
+    energie: 5,
     vies: 1,
     points: 0,
 }
 
 let perso2 = {
     name: "B",
-    energie: 4,
+    energie: 5,
     vies: 1,
     points: 0,
 }
@@ -115,8 +114,8 @@ function reinitialiser() {
 
 function finDeManche(personnage, cible) {
     if (cible.vies < 0) {
-        addTurn();
         points(personnage);
+        addTurn();
         reinitialiser();
         afficherEV();
         changeJoueur();
@@ -187,18 +186,26 @@ function compareQuestion2() {
             crochet(perso2);
             animCrochetPerso1();
             animCoupPerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         } else {
             animCrochetPerso1();
             animFeintePerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         }
     } else {
         if (Number(reponse) === c) {
             crochet(perso1);
             animCrochetPerso2();
             animCoupPerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         } else {
             animCrochetPerso2();
             animFeintePerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         }
 
     }
@@ -215,19 +222,28 @@ function comparerQuestion3() {
             direct(perso2);
             animDirectPerso1();
             animCoupPerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         } else {
             animDirectPerso1();
             animFeintePerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         }
     } else {
         if (Number(reponse) === c) {
             direct(perso1);
             animDirectPerso2();
             animCoupPerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         } else {
             animDirectPerso2();
             animFeintePerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         }
+
 
     }
 }
@@ -311,6 +327,7 @@ function animFaintPerso() {
 //---------------------------animations perso 2
 
 function animUppercutPerso2() {
+    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2upper");
     personnage2.addEventListener('animationend', function() {
@@ -320,6 +337,7 @@ function animUppercutPerso2() {
 }
 
 function animCrochetPerso2() {
+    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2crochet");
     personnage2.addEventListener('animationend', function() {
@@ -329,6 +347,7 @@ function animCrochetPerso2() {
 }
 
 function animDirectPerso2() {
+    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2direct");
     personnage2.addEventListener('animationend', function() {
@@ -337,6 +356,7 @@ function animDirectPerso2() {
 }
 
 function animFeintePerso2() {
+    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2feinte");
     personnage2.addEventListener('animationend', function() {
@@ -345,6 +365,7 @@ function animFeintePerso2() {
 }
 
 function animCoupPerso2() {
+    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2coup");
     personnage2.addEventListener('animationend', function() {
@@ -353,6 +374,7 @@ function animCoupPerso2() {
 }
 
 function animFaintPerso2() {
+    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2faint");
     personnage2.addEventListener('animationend', function() {
@@ -377,8 +399,7 @@ submit.addEventListener("click", function() {
     afficherPoints();
     addTurn();
     changeJoueur();
-    finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);
+
 })
 
 //--------------------------------event bouton submit2
@@ -390,8 +411,6 @@ submit2.addEventListener("click", function() {
     afficherPoints();
     addTurn();
     changeJoueur();
-    finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);
 })
 
 //---------------------------------event bouton submit3
@@ -403,8 +422,6 @@ submit3.addEventListener("click", function() {
     afficherPoints();
     addTurn();
     changeJoueur();
-    finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);
 })
 
 //---------------------------------event joueur 2
