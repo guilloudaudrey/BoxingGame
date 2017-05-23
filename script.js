@@ -2,6 +2,7 @@
 let a = Math.floor(Math.random() * 11);
 let b = Math.floor(Math.random() * 11);
 let c = a * b;
+let personnage2 = document.querySelector(".perso2");
 
 // ----------------------------objets
 "use strict";
@@ -12,15 +13,15 @@ let jeu = {
 
 let perso1 = {
     name: "A",
-    energie: 10,
-    vies: 5,
+    energie: 4,
+    vies: 1,
     points: 0,
 }
 
 let perso2 = {
     name: "B",
-    energie: 10,
-    vies: 5,
+    energie: 4,
+    vies: 1,
     points: 0,
 }
 
@@ -114,10 +115,10 @@ function reinitialiser() {
 
 function finDeManche(personnage, cible) {
     if (cible.vies < 0) {
+        addTurn();
         points(personnage);
         reinitialiser();
         afficherEV();
-        addTurn();
         changeJoueur();
     }
 }
@@ -153,48 +154,84 @@ function afficherQuestion3() {
 //-------------------------Comparer question 1
 
 function compareQuestion1() {
-    let c = a + b;
+    c = a + b;
     let reponse = document.querySelector(".inputtext").value;
-    if (Number(reponse) === c) {
-        uppercut(perso2);
-        animUppercutPerso1();
-        animCoupPerso2();
+    if (jeu.turn % 2 === 0) {
+        if (Number(reponse) === c) {
+            uppercut(perso2);
+            animUppercutPerso1();
+            animCoupPerso2();
+        } else {
+            animUppercutPerso1();
+            animFeintePerso2();
+        }
     } else {
-        animUppercutPerso1();
-        animFeintePerso2();
+        if (Number(reponse) === c) {
+            uppercut(perso1);
+            animUppercutPerso2();
+            animCoupPerso1();
+        } else {
+            animUppercutPerso2();
+            animFeintePerso1();
+        }
     }
 }
 
 //-------------------------Comparer question 2
 
 function compareQuestion2() {
-    let c = a * b;
+    c = a * b;
     let reponse = document.querySelector(".inputtext").value;
-    if (Number(reponse) === c) {
-        crochet(perso2);
-        animCrochetPerso1();
-        animCoupPerso2();
+    if (jeu.turn % 2 === 0) {
+        if (Number(reponse) === c) {
+            crochet(perso2);
+            animCrochetPerso1();
+            animCoupPerso2();
+        } else {
+            animCrochetPerso1();
+            animFeintePerso2();
+        }
     } else {
-        animCrochetPerso1();
-        animFeintePerso2();
+        if (Number(reponse) === c) {
+            crochet(perso1);
+            animCrochetPerso2();
+            animCoupPerso1();
+        } else {
+            animCrochetPerso2();
+            animFeintePerso1();
+        }
+
     }
 }
 
 //---------------------------- Comparer question 3
 
 function comparerQuestion3() {
-    let c = (a * b) + (a * b);
+    c = (a * b) + (a * b);
 
     let reponse = document.querySelector(".inputtext").value;
-    if (Number(reponse) === c) {
-        crochet(perso2);
-        animDirectPerso1();
-        animCoupPerso2();
+    if (jeu.turn % 2 === 0) {
+        if (Number(reponse) === c) {
+            direct(perso2);
+            animDirectPerso1();
+            animCoupPerso2();
+        } else {
+            animDirectPerso1();
+            animFeintePerso2();
+        }
     } else {
-        animDirectPerso1();
-        animFeintePerso2();
+        if (Number(reponse) === c) {
+            direct(perso1);
+            animDirectPerso2();
+            animCoupPerso1();
+        } else {
+            animDirectPerso2();
+            animFeintePerso1();
+        }
+
     }
 }
+
 
 //------------------------ Réinitialise la question et le champs de saisie
 
@@ -203,7 +240,6 @@ function reinitialiserQuestion1() {
     question.innerHTML = "";
     let reponse = document.querySelector(".inputtext");
     reponse.value = "";
-
 }
 
 
@@ -236,6 +272,14 @@ function animDirectPerso1() {
     })
 }
 
+function animFeintePerso1() {
+    let personnage1 = document.querySelector(".perso1");
+    let classes = personnage1.className;
+    personnage1.classList.add("perso1feinte");
+    personnage1.addEventListener('animationend', function() {
+        personnage1.className = classes;
+    })
+}
 
 function animCoupPerso1() {
     let personnage1 = document.querySelector(".perso1");
@@ -267,7 +311,6 @@ function animFaintPerso() {
 //---------------------------animations perso 2
 
 function animUppercutPerso2() {
-    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2upper");
     personnage2.addEventListener('animationend', function() {
@@ -277,7 +320,6 @@ function animUppercutPerso2() {
 }
 
 function animCrochetPerso2() {
-    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2crochet");
     personnage2.addEventListener('animationend', function() {
@@ -287,7 +329,6 @@ function animCrochetPerso2() {
 }
 
 function animDirectPerso2() {
-    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2direct");
     personnage2.addEventListener('animationend', function() {
@@ -296,7 +337,6 @@ function animDirectPerso2() {
 }
 
 function animFeintePerso2() {
-    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2feinte");
     personnage2.addEventListener('animationend', function() {
@@ -305,7 +345,6 @@ function animFeintePerso2() {
 }
 
 function animCoupPerso2() {
-    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2coup");
     personnage2.addEventListener('animationend', function() {
@@ -314,7 +353,6 @@ function animCoupPerso2() {
 }
 
 function animFaintPerso2() {
-    let personnage2 = document.querySelector(".perso2");
     let classes = personnage2.className;
     personnage2.classList.add("perso2faint");
     personnage2.addEventListener('animationend', function() {
@@ -337,6 +375,8 @@ submit.addEventListener("click", function() {
     reinitialiserQuestion1();
     afficherEV();
     afficherPoints();
+    addTurn();
+    changeJoueur();
     finDeManche(perso1, perso2);
     finDeManche(perso2, perso1);
 })
@@ -348,6 +388,21 @@ submit2.addEventListener("click", function() {
     reinitialiserQuestion1();
     afficherEV();
     afficherPoints();
+    addTurn();
+    changeJoueur();
+    finDeManche(perso1, perso2);
+    finDeManche(perso2, perso1);
+})
+
+//---------------------------------event bouton submit3
+let submit3 = document.querySelector(".inputsubmit3");
+submit3.addEventListener("click", function() {
+    comparerQuestion3();
+    reinitialiserQuestion1();
+    afficherEV();
+    afficherPoints();
+    addTurn();
+    changeJoueur();
     finDeManche(perso1, perso2);
     finDeManche(perso2, perso1);
 })
@@ -356,35 +411,36 @@ submit2.addEventListener("click", function() {
 
 let bouton4 = document.querySelector(".bouton4");
 bouton4.addEventListener("click", function() {
-    uppercut(perso1);
-    animUppercutPerso2();
-    animEtourdPerso1();
-    afficherEV();
-    afficherPoints();
-    finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);
+    affichQuestion1();
+    let submit = document.querySelector(".inputsubmit");
+    let submit2 = document.querySelector(".inputsubmit2");
+    let submit3 = document.querySelector(".inputsubmit3")
+    submit.style.display = "block";
+    submit2.style.display = "none";
+    submit3.style.display = "none";
+
 })
 
 let bouton5 = document.querySelector(".bouton5");
 bouton5.addEventListener("click", function(e) {
-    crochet(perso1);
-    animCrochetPerso2();
-    animCoupPerso1();
-    afficherEV();
-    afficherPoints();
-    finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);
+    affichQuestion2();
+    let submit = document.querySelector(".inputsubmit");
+    let submit2 = document.querySelector(".inputsubmit2");
+    let submit3 = document.querySelector(".inputsubmit3")
+    submit.style.display = "none";
+    submit2.style.display = "block";
+    submit3.style.display = "none";
 })
 
 let bouton6 = document.querySelector(".bouton6");
 bouton6.addEventListener("click", function() {
-    direct(perso1);
-    animDirectPerso2();
-    animCoupPerso1();
-    afficherEV();
-    afficherPoints();
-    finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);
+    afficherQuestion3();
+    let submit = document.querySelector(".inputsubmit");
+    let submit2 = document.querySelector(".inputsubmit2");
+    let submit3 = document.querySelector(".inputsubmit3")
+    submit.style.display = "none";
+    submit2.style.display = "none";
+    submit3.style.display = "block";
 })
 
 // -----------------------------event joueur 1
@@ -411,17 +467,6 @@ bouton2.addEventListener("click", function() {
     submit2.style.display = "block";
     submit3.style.display = "none";
 
-
-
-
-
-    /*crochet(perso2);
-    animCrochetPerso1();
-    animCoupPerso2();
-    afficherEV();
-    afficherPoints();
-    finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);*/
 })
 
 let bouton3 = document.querySelector(".bouton3");
@@ -433,21 +478,4 @@ bouton3.addEventListener("click", function() {
     submit.style.display = "none";
     submit2.style.display = "none";
     submit3.style.display = "block";
-
-    /*direct(perso2);
-    animDirectPerso1();
-    animFaintPerso2();
-    afficherEV();
-    afficherPoints();
-    finDeManche(perso1, perso2);
-    finDeManche(perso2, perso1);*/
 })
-
-
-/*let bonus = document.querySelector(".bonus");
-bonus.addEventListener("click", function() {
-    disparaitre();
-    Bonus();
-    afficherPointsJ1();
-    GameOver();
-})*/

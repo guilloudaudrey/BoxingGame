@@ -115,11 +115,6 @@
         top: 35px;
         padding-bottom: 20px;
     }
-    /*.bonus {
-    width: 20px;
-    height: 20px;
-    background: red;
-}*/
     
     .perso2 {
         width: 229px;
@@ -307,6 +302,10 @@
         animation: boxercoup 0.5s steps(1);
     }
     
+    .perso1feinte {
+        animation: boxerfeinte 0.5s steps(1);
+    }
+    
     .perso1etourd {
         animation: boxeretourd 0.5s steps(1);
     }
@@ -455,6 +454,30 @@
     }
     
     @keyframes boxercoup {
+        0% {
+            background-position: -12px 0px;
+        }
+        16% {
+            background-position: -660px -345px;
+        }
+        32% {
+            background-position: -900px -345px;
+        }
+        48% {
+            background-position: -1100px -345px;
+        }
+        64% {
+            background-position: -900px -345px;
+        }
+        80% {
+            background-position: -660px -345px;
+        }
+        100% {
+            background-position: -12px 0px;
+        }
+    }
+    
+    @keyframes boxerfeinte {
         0% {
             background-position: -12px 0px;
         }
