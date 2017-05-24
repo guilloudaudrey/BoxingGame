@@ -3,6 +3,17 @@ let a = Math.floor(Math.random() * 11);
 let b = Math.floor(Math.random() * 11);
 let c = a * b;
 
+let submit = document.querySelector(".inputsubmit");
+let submit2 = document.querySelector(".inputsubmit2");
+let submit3 = document.querySelector(".inputsubmit3");
+
+let bouton1 = document.querySelector(".bouton1");
+let bouton2 = document.querySelector(".bouton2");
+let bouton3 = document.querySelector(".bouton3");
+let bouton4 = document.querySelector(".bouton4");
+let bouton5 = document.querySelector(".bouton5");
+let bouton6 = document.querySelector(".bouton6");
+
 // ----------------------------objets
 "use strict";
 
@@ -35,7 +46,35 @@ function changeJoueur() {
     } else {
         buttonbox2.style.display = "flex";
         buttonbox1.style.display = "none";
+    }
+}
 
+//---------------------------actions ordi
+
+function ComputerTurn() {
+    let i = Math.floor(Math.random() * 3) + 1;
+    if (i === 1) {
+        uppercut(perso1);
+        animUppercutPerso2();
+        animCoupPerso1();
+        finDeManche(perso1, perso2);
+        finDeManche(perso2, perso1);
+    }
+
+    if (i === 2) {
+        crochet(perso1);
+        animCrochetPerso2();
+        animCoupPerso1();
+        finDeManche(perso1, perso2);
+        finDeManche(perso2, perso1);
+    }
+
+    if (i === 2) {
+        direct(perso1);
+        animDirectPerso2();
+        animCoupPerso1();
+        finDeManche(perso1, perso2);
+        finDeManche(perso2, perso1);
     }
 }
 
@@ -122,6 +161,14 @@ function finDeManche(personnage, cible) {
     }
 }
 
+//-------------------------Game Over
+
+function gameOver(personnage) {
+    if (personnage.points = 5) {
+        console.log(personnage + " a gagné");
+    }
+}
+
 //-------------------------Afficher question 1
 
 function affichQuestion1() {
@@ -160,18 +207,28 @@ function compareQuestion1() {
             uppercut(perso2);
             animUppercutPerso1();
             animCoupPerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         } else {
+            uppercut(perso1);
             animUppercutPerso1();
             animFeintePerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         }
     } else {
         if (Number(reponse) === c) {
             uppercut(perso1);
             animUppercutPerso2();
             animCoupPerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         } else {
+            uppercut(perso2);
             animUppercutPerso2();
             animFeintePerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
         }
     }
 }
@@ -189,6 +246,7 @@ function compareQuestion2() {
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
         } else {
+            crochet(perso1);
             animCrochetPerso1();
             animFeintePerso2();
             finDeManche(perso1, perso2);
@@ -202,6 +260,7 @@ function compareQuestion2() {
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
         } else {
+            crochet(perso2);
             animCrochetPerso2();
             animFeintePerso1();
             finDeManche(perso1, perso2);
@@ -225,6 +284,7 @@ function comparerQuestion3() {
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
         } else {
+            direct(perso1);
             animDirectPerso1();
             animFeintePerso2();
             finDeManche(perso1, perso2);
@@ -238,6 +298,7 @@ function comparerQuestion3() {
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
         } else {
+            direct(perso2);
             animDirectPerso2();
             animFeintePerso1();
             finDeManche(perso1, perso2);
@@ -391,7 +452,6 @@ afficherEV();
 changeJoueur();
 
 //-------------------------------event bouton submit1
-let submit = document.querySelector(".inputsubmit");
 submit.addEventListener("click", function() {
     compareQuestion1();
     reinitialiserQuestion1();
@@ -403,7 +463,6 @@ submit.addEventListener("click", function() {
 })
 
 //--------------------------------event bouton submit2
-let submit2 = document.querySelector(".inputsubmit2");
 submit2.addEventListener("click", function() {
     compareQuestion2();
     reinitialiserQuestion1();
@@ -414,7 +473,6 @@ submit2.addEventListener("click", function() {
 })
 
 //---------------------------------event bouton submit3
-let submit3 = document.querySelector(".inputsubmit3");
 submit3.addEventListener("click", function() {
     comparerQuestion3();
     reinitialiserQuestion1();
@@ -426,35 +484,24 @@ submit3.addEventListener("click", function() {
 
 //---------------------------------event joueur 2
 
-let bouton4 = document.querySelector(".bouton4");
+
 bouton4.addEventListener("click", function() {
     affichQuestion1();
-    let submit = document.querySelector(".inputsubmit");
-    let submit2 = document.querySelector(".inputsubmit2");
-    let submit3 = document.querySelector(".inputsubmit3")
     submit.style.display = "block";
     submit2.style.display = "none";
     submit3.style.display = "none";
 
 })
 
-let bouton5 = document.querySelector(".bouton5");
 bouton5.addEventListener("click", function(e) {
     affichQuestion2();
-    let submit = document.querySelector(".inputsubmit");
-    let submit2 = document.querySelector(".inputsubmit2");
-    let submit3 = document.querySelector(".inputsubmit3")
     submit.style.display = "none";
     submit2.style.display = "block";
     submit3.style.display = "none";
 })
 
-let bouton6 = document.querySelector(".bouton6");
 bouton6.addEventListener("click", function() {
     afficherQuestion3();
-    let submit = document.querySelector(".inputsubmit");
-    let submit2 = document.querySelector(".inputsubmit2");
-    let submit3 = document.querySelector(".inputsubmit3")
     submit.style.display = "none";
     submit2.style.display = "none";
     submit3.style.display = "block";
@@ -462,36 +509,24 @@ bouton6.addEventListener("click", function() {
 
 // -----------------------------event joueur 1
 
-let bouton1 = document.querySelector(".bouton1");
 bouton1.addEventListener("click", function() {
     affichQuestion1();
-    let submit = document.querySelector(".inputsubmit");
-    let submit2 = document.querySelector(".inputsubmit2");
-    let submit3 = document.querySelector(".inputsubmit3")
     submit.style.display = "block";
     submit2.style.display = "none";
     submit3.style.display = "none";
 
 })
 
-let bouton2 = document.querySelector(".bouton2");
 bouton2.addEventListener("click", function() {
     affichQuestion2();
-    let submit = document.querySelector(".inputsubmit");
-    let submit2 = document.querySelector(".inputsubmit2");
-    let submit3 = document.querySelector(".inputsubmit3")
     submit.style.display = "none";
     submit2.style.display = "block";
     submit3.style.display = "none";
 
 })
 
-let bouton3 = document.querySelector(".bouton3");
 bouton3.addEventListener("click", function() {
     afficherQuestion3();
-    let submit = document.querySelector(".inputsubmit");
-    let submit2 = document.querySelector(".inputsubmit2");
-    let submit3 = document.querySelector(".inputsubmit3")
     submit.style.display = "none";
     submit2.style.display = "none";
     submit3.style.display = "block";

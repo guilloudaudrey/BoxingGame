@@ -39,6 +39,14 @@
          margin: auto;
      }
      
+     .gameover {
+         position: relative;
+         width: 900px;
+         height: 420px;
+         background: yellow;
+         display: none;
+     }
+     
      .compteurpoints {
          width: 15%;
          height: 50px;
