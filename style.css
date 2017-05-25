@@ -25,14 +25,15 @@
          text-align: center;
          font-family: 'Press Start 2P', cursive;
          animation: eclair 2s infinite;
+         font-size: 1em;
      }
      
      h3 {
-         font-size: 2em;
+         font-size: 1em;
      }
      
      .grandezone {
-         padding-top: 20px;
+         padding-top: 10px;
          display: flex;
          justify-content: center;
          width: 90%;
@@ -83,24 +84,25 @@
      }
      
      .ring {
-         width: 900px;
-         height: 420px;
+         width: 700px;
+         height: 340px;
          background: url(boxingring.png) no-repeat center;
          margin: auto;
          display: flex;
      }
      
      .ring1 {
-         width: 550px;
+         width: 350px;
      }
      
      .ring2 {
-         width: 550px;
+         width: 350px;
      }
+     /*boutons attaques */
      
      .buttonbox {
-         width: 900px;
-         height: 110px;
+         width: 700px;
+         height: 100px;
          margin: auto;
          background: lightgrey;
          display: flex;
@@ -108,7 +110,7 @@
      
      .buttonbox1 {
          width: 550px;
-         height: 110px;
+         height: 100px;
          margin: auto;
          background: grey;
          display: flex;
@@ -116,7 +118,7 @@
      
      .buttonbox2 {
          width: 550px;
-         height: 110px;
+         height: 100px;
          margin: auto;
          background: darkgrey;
          display: flex;
@@ -136,26 +138,25 @@
      }
      
      .perso2 {
-         width: 229px;
-         height: 295px;
-         top: 20px;
-         left: -70px;
+         width: 150px;
+         height: 200px;
+         top: 50px;
+         left: -50px;
          position: relative;
          display: inline-block;
-         justify-content: flex-start;
          background: url("sprite2.png") no-repeat;
-         background-position: -1775px -2px;
+         background-position: -1198px 0px;
      }
      
      .perso1 {
-         top: 20px;
-         left: 300px;
+         top: 50px;
+         left: 240px;
          position: relative;
-         width: 229px;
-         height: 295px;
+         width: 150px;
+         height: 200px;
          display: inline-block;
          background: url("sprite1.png") no-repeat;
-         background-position: -12px 0px;
+         background-position: 0px 0px;
      }
      
      .bouton1,
@@ -216,7 +217,7 @@
          background-image: linear-gradient(yellow, white);
          font-family: 'Geo', sans-serif;
          width: 500px;
-         height: 510px;
+         height: 420px;
          padding-top: 20px;
          border-radius: 10px 10px 0 0;
      }
@@ -224,6 +225,7 @@
      .compteur1 h1,
      .compteur2 h1 {
          font-family: 'Press Start 2P', cursive;
+         font-size: 1em;
          text-shadow: 3px 3px 1px white;
      }
      
@@ -407,295 +409,271 @@
      
      @keyframes boxer {
          0% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
          16% {
-             background-position: -228px 0px;
+             background-position: -450px 0px;
          }
          32% {
-             background-position: -440px 0px;
+             background-position: -148px 0px;
          }
          48% {
-             background-position: -666px 0px;
+             background-position: -300px 0px;
          }
          64% {
-             background-position: -440px 0px;
+             background-position: -148px 0px;
          }
          80% {
-             background-position: -228px 0px;
+             background-position: -450px 0px;
          }
          100% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
      }
      
      @keyframes boxercrochet {
          0% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
          16% {
-             background-position: -890px 0px;
+             background-position: -450px 0px;
          }
          32% {
-             background-position: -1120px 0px;
+             background-position: -600px 0px;
          }
          48% {
-             background-position: -1340px 0px;
+             background-position: -750px 0px;
          }
          64% {
-             background-position: -1120px 0px;
+             background-position: -600px 0px;
          }
          80% {
-             background-position: -890px 0px;
+             background-position: -450px 0px;
          }
          100% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
      }
      
      @keyframes boxerdirect {
          0% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
          16% {
-             background-position: -228px 0px;
+             background-position: -450px 0px;
          }
          32% {
-             background-position: -1560px 0px;
+             background-position: -1050px 0px;
          }
          48% {
-             background-position: -1780px 0px;
+             background-position: -1200px 0px;
          }
          64% {
-             background-position: -1560px 0px;
+             background-position: -1050px 0px;
          }
          80% {
-             background-position: -228px 0px;
+             background-position: -450px 0px;
          }
          100% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
      }
      
      @keyframes boxercoup {
          0% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
          16% {
-             background-position: -660px -345px;
+             background-position: -450px -225px;
          }
          32% {
-             background-position: -900px -345px;
+             background-position: -600px -225px;
          }
          48% {
-             background-position: -1100px -345px;
+             background-position: -750px -225px;
          }
          64% {
-             background-position: -900px -345px;
+             background-position: -600px -225px;
          }
          80% {
-             background-position: -660px -345px;
+             background-position: -450px -225px;
          }
          100% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
      }
      
      @keyframes boxerfeinte {
          0% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
          16% {
-             background-position: -11px -345px;
+             background-position: 0px -230px;
          }
          32% {
-             background-position: -228px -345px;
+             background-position: -150px -230px;
          }
          48% {
-             background-position: -440px -345px;
+             background-position: -300px -230px;
          }
          64% {
-             background-position: -228px -345px;
+             background-position: -150px -230px;
          }
          80% {
-             background-position: -11px -345px;
+             background-position: 0px -230px;
          }
          100% {
-             background-position: -12px 0px;
-         }
-     }
-     
-     @keyframes boxeretourd {
-         0% {
-             background-position: -12px 0px;
-         }
-         16% {
-             background-position: -658px -345px;
-         }
-         32% {
-             background-position: -885px -345px;
-         }
-         48% {
-             background-position: -1095px -345px;
-         }
-         64% {
-             background-position: -885px -345px;
-         }
-         80% {
-             background-position: -658px -345px;
-         }
-         100% {
-             background-position: -12px 0px;
+             background-position: 0px 0px;
          }
      }
      
      @keyframes boxerfaint {
          0% {
-             background-position: -12px 0px;
+             background-position: -600px -225px;
          }
          40% {
-             background-position: -1110px -345px;
+             background-position: -750px -225px;
          }
          80% {
-             background-position: -1332px -345px;
+             background-position: -1050px -225px;
          }
          100% {
-             background-position: -1555px -345px;
+             background-position: -1050px -345px;
          }
      }
      /*--------------------------------------------anims perso 2*/
      
      @keyframes advupper {
          0% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
          16% {
-             background-position: -1555px -2px;
+             background-position: -1045px -2px;
          }
          32% {
-             background-position: -1325px -2px;
+             background-position: -890px -2px;
          }
          48% {
-             background-position: -1110px -2px;
+             background-position: -730px -2px;
          }
          64% {
-             background-position: -1325px -2px;
+             background-position: -890px -2px;
          }
          80% {
-             background-position: -1555px -2px;
+             background-position: -1045px -2px;
          }
          100% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
      }
      
      @keyframes advcrochet {
          0% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
          16% {
-             background-position: -840px -2px;
+             background-position: -560px -2px;
          }
          32% {
-             background-position: -590px -2px;
+             background-position: -400px -2px;
          }
          48% {
-             background-position: -380px -2px;
+             background-position: -250px -2px;
          }
          64% {
-             background-position: -590px -2px;
+             background-position: -400px -2px;
          }
          80% {
-             background-position: -840px -2px;
+             background-position: -560px -2px;
          }
          100% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
      }
      
      @keyframes advdirect {
          0% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
          16% {
-             background-position: -1555px -2px;
+             background-position: -1045px -2px;
          }
          32% {
-             background-position: -110px -2px;
+             background-position: -80px -2px;
          }
          48% {
-             background-position: -1815px -320px;
+             background-position: -1225px -220px;
          }
          64% {
-             background-position: -110px -2px;
+             background-position: -80px -2px;
          }
          80% {
-             background-position: -1555px -2px;
+             background-position: -1045px -2px;
          }
          100% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
      }
      
      @keyframes advfeinte {
          0% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
          16% {
-             background-position: -1565px -325px;
+             background-position: -1050px -220px;
          }
          32% {
-             background-position: -1345px -325px;
+             background-position: -900px -220px;
          }
          48% {
-             background-position: -1125px -325px;
+             background-position: -750px -220px;
          }
          64% {
-             background-position: -1345px -325px;
+             background-position: -900px -220px;
          }
          80% {
-             background-position: -1565px -325px;
+             background-position: -1050px -220px
          }
          100% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
      }
      
      @keyframes advcoup {
          0% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
          16% {
-             background-position: -855px -316px;
+             background-position: -575px -220px;
          }
          32% {
-             background-position: -625px -316px;
+             background-position: -435px -220px;
          }
          48% {
-             background-position: -400px -300px;
+             background-position: -270px -210px
          }
          64% {
-             background-position: -625px -316px;
+             background-position: -435px -220px;
          }
          80% {
-             background-position: -855px -316px;
+             background-position: -575px -220px;
          }
          100% {
-             background-position: -1775px -2px;
+             background-position: -1198px 0px;
          }
      }
      
      @keyframes advfaint {
          0% {
-             background-position: -1775px -2px;
+             background-position: -270px -200px;
          }
          40% {
-             background-position: -625px -316px;
+             background-position: -85px -200px;
          }
          80% {
-             background-position: -125px -316px;
+             background-position: -1225px -420px;
          }
          100% {
-             background-position: -1815px -620px;
+             background-position: -1225px -420px;
          }
      }

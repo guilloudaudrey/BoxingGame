@@ -1,7 +1,6 @@
-//-----------------------------variables
 let a = Math.floor(Math.random() * 11);
 let b = Math.floor(Math.random() * 11);
-let c = a * b;
+let c;
 
 let submit = document.querySelector(".inputsubmit");
 let submit2 = document.querySelector(".inputsubmit2");
@@ -14,6 +13,9 @@ let bouton4 = document.querySelector(".bouton4");
 let bouton5 = document.querySelector(".bouton5");
 let bouton6 = document.querySelector(".bouton6");
 
+let jauge1 = document.querySelector("#avancement");
+let jauge2 = document.querySelector("#avancement1");
+
 // ----------------------------objets
 "use strict";
 
@@ -24,14 +26,14 @@ let jeu = {
 let perso1 = {
     name: "A",
     energie: 5,
-    vies: 1,
+    vies: 0,
     points: 0,
 }
 
 let perso2 = {
     name: "B",
     energie: 5,
-    vies: 1,
+    vies: 0,
     points: 0,
 }
 
@@ -49,7 +51,7 @@ function changeJoueur() {
     }
 }
 
-//---------------------------actions ordi
+/*---------------------------actions ordi
 
 function ComputerTurn() {
     let i = Math.floor(Math.random() * 3) + 1;
@@ -76,7 +78,7 @@ function ComputerTurn() {
         finDeManche(perso1, perso2);
         finDeManche(perso2, perso1);
     }
-}
+}*/
 
 //---------------------------ajouter tour
 
@@ -126,6 +128,17 @@ function afficherEV() {
     pointsvies2.innerHTML = perso2.vies;
 }
 
+//--------------------------Progression de la jauge
+function jauge(elem, valeur) {
+    elem.value = elem.value - valeur;
+}
+
+//----------------------------Réinitialisation de la jauge
+function jaugeReinitial(elem, elem1) {
+    elem.value = 5;
+    elem1.value = 5;
+}
+
 // -----------------------------ajouter points
 
 function points(personnage) {
@@ -156,163 +169,16 @@ function finDeManche(personnage, cible) {
         points(personnage);
         addTurn();
         reinitialiser();
+        jaugeReinitial(jauge1, jauge2)
         afficherEV();
         changeJoueur();
     }
 }
 
-//-------------------------Game Over
-
-function gameOver(personnage) {
-    if (personnage.points = 5) {
-        console.log(personnage + " a gagné");
-    }
-}
-
-//-------------------------Afficher question 1
-
-function affichQuestion1() {
-    a = Math.floor(Math.random() * 11);
-    b = Math.floor(Math.random() * 11);
-
-    let question = document.querySelector(".question1");
-    question.innerHTML = a + " + " + b;
-}
-
-//-------------------------Afficher question 2
-function affichQuestion2() {
-    a = Math.floor(Math.random() * 11);
-    b = Math.floor(Math.random() * 11);
-
-    let question = document.querySelector(".question1");
-    question.innerHTML = a + " x " + b;
-}
-
-//--------------------------Afficher question 3
-function afficherQuestion3() {
-    a = Math.floor(Math.random() * 11);
-    b = Math.floor(Math.random() * 11);
-
-    let question = document.querySelector(".question1");
-    question.innerHTML = "(" + a + " x " + b + ")" + " + " + "(" + a + " x " + b + ")";
-}
-
-//-------------------------Comparer question 1
-
-function compareQuestion1() {
-    c = a + b;
-    let reponse = document.querySelector(".inputtext").value;
-    if (jeu.turn % 2 === 0) {
-        if (Number(reponse) === c) {
-            uppercut(perso2);
-            animUppercutPerso1();
-            animCoupPerso2();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        } else {
-            uppercut(perso1);
-            animUppercutPerso1();
-            animFeintePerso2();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        }
-    } else {
-        if (Number(reponse) === c) {
-            uppercut(perso1);
-            animUppercutPerso2();
-            animCoupPerso1();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        } else {
-            uppercut(perso2);
-            animUppercutPerso2();
-            animFeintePerso1();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        }
-    }
-}
-
-//-------------------------Comparer question 2
-
-function compareQuestion2() {
-    c = a * b;
-    let reponse = document.querySelector(".inputtext").value;
-    if (jeu.turn % 2 === 0) {
-        if (Number(reponse) === c) {
-            crochet(perso2);
-            animCrochetPerso1();
-            animCoupPerso2();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        } else {
-            crochet(perso1);
-            animCrochetPerso1();
-            animFeintePerso2();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        }
-    } else {
-        if (Number(reponse) === c) {
-            crochet(perso1);
-            animCrochetPerso2();
-            animCoupPerso1();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        } else {
-            crochet(perso2);
-            animCrochetPerso2();
-            animFeintePerso1();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        }
-
-    }
-}
-
-//---------------------------- Comparer question 3
-
-function comparerQuestion3() {
-    c = (a * b) + (a * b);
-
-    let reponse = document.querySelector(".inputtext").value;
-    if (jeu.turn % 2 === 0) {
-        if (Number(reponse) === c) {
-            direct(perso2);
-            animDirectPerso1();
-            animCoupPerso2();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        } else {
-            direct(perso1);
-            animDirectPerso1();
-            animFeintePerso2();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        }
-    } else {
-        if (Number(reponse) === c) {
-            direct(perso1);
-            animDirectPerso2();
-            animCoupPerso1();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        } else {
-            direct(perso2);
-            animDirectPerso2();
-            animFeintePerso1();
-            finDeManche(perso1, perso2);
-            finDeManche(perso2, perso1);
-        }
-
-
-    }
-}
-
-
 //------------------------ Réinitialise la question et le champs de saisie
 
-function reinitialiserQuestion1() {
+
+function reinitialiserQuestion() {
     let question = document.querySelector(".question1");
     question.innerHTML = "";
     let reponse = document.querySelector(".inputtext");
@@ -362,15 +228,6 @@ function animCoupPerso1() {
     let personnage1 = document.querySelector(".perso1");
     let classes = personnage1.className;
     personnage1.classList.add("perso1coup");
-    personnage1.addEventListener('animationend', function() {
-        personnage1.className = classes;
-    })
-}
-
-function animEtourdPerso1() {
-    let personnage1 = document.querySelector(".perso1");
-    let classes = personnage1.className;
-    personnage1.classList.add("perso1etourd");
     personnage1.addEventListener('animationend', function() {
         personnage1.className = classes;
     })
@@ -452,9 +309,10 @@ afficherEV();
 changeJoueur();
 
 //-------------------------------event bouton submit1
+
 submit.addEventListener("click", function() {
     compareQuestion1();
-    reinitialiserQuestion1();
+    reinitialiserQuestion();
     afficherEV();
     afficherPoints();
     addTurn();
@@ -463,9 +321,10 @@ submit.addEventListener("click", function() {
 })
 
 //--------------------------------event bouton submit2
+
 submit2.addEventListener("click", function() {
     compareQuestion2();
-    reinitialiserQuestion1();
+    reinitialiserQuestion();
     afficherEV();
     afficherPoints();
     addTurn();
@@ -473,16 +332,42 @@ submit2.addEventListener("click", function() {
 })
 
 //---------------------------------event bouton submit3
+
 submit3.addEventListener("click", function() {
     comparerQuestion3();
-    reinitialiserQuestion1();
+    reinitialiserQuestion();
     afficherEV();
     afficherPoints();
     addTurn();
     changeJoueur();
 })
 
-//---------------------------------event joueur 2
+// -----------------------------event boutons attaques joueur 1
+
+bouton1.addEventListener("click", function() {
+    affichQuestion1();
+    submit.style.display = "block";
+    submit2.style.display = "none";
+    submit3.style.display = "none";
+
+})
+
+bouton2.addEventListener("click", function() {
+    affichQuestion2();
+    submit.style.display = "none";
+    submit2.style.display = "block";
+    submit3.style.display = "none";
+
+})
+
+bouton3.addEventListener("click", function() {
+    afficherQuestion3();
+    submit.style.display = "none";
+    submit2.style.display = "none";
+    submit3.style.display = "block";
+})
+
+//---------------------------------event boutons attaques joueur 2
 
 
 bouton4.addEventListener("click", function() {
@@ -507,27 +392,145 @@ bouton6.addEventListener("click", function() {
     submit3.style.display = "block";
 })
 
-// -----------------------------event joueur 1
 
-bouton1.addEventListener("click", function() {
-    affichQuestion1();
-    submit.style.display = "block";
-    submit2.style.display = "none";
-    submit3.style.display = "none";
+//-------------------------Afficher question 1
 
-})
+function affichQuestion1() {
+    a = Math.floor(Math.random() * 11);
+    b = Math.floor(Math.random() * 11);
 
-bouton2.addEventListener("click", function() {
-    affichQuestion2();
-    submit.style.display = "none";
-    submit2.style.display = "block";
-    submit3.style.display = "none";
+    let question = document.querySelector(".question1");
+    question.innerHTML = a + " + " + b;
+}
 
-})
+//-------------------------Afficher question 2
 
-bouton3.addEventListener("click", function() {
-    afficherQuestion3();
-    submit.style.display = "none";
-    submit2.style.display = "none";
-    submit3.style.display = "block";
-})
+function affichQuestion2() {
+    a = Math.floor(Math.random() * 11);
+    b = Math.floor(Math.random() * 11);
+
+    let question = document.querySelector(".question1");
+    question.innerHTML = a + " x " + b;
+}
+
+//--------------------------Afficher question 3
+
+function afficherQuestion3() {
+    a = Math.floor(Math.random() * 11);
+    b = Math.floor(Math.random() * 11);
+
+    let question = document.querySelector(".question1");
+    question.innerHTML = "(" + a + " x " + b + ")" + " + " + "(" + a + " x " + b + ")";
+}
+
+//-------------------------Comparer réponse et solution question 1
+
+function compareQuestion1() {
+    c = a + b;
+    let reponse = document.querySelector(".inputtext").value;
+    if (jeu.turn % 2 === 0) {
+        if (Number(reponse) === c) {
+            uppercut(perso2);
+            animUppercutPerso1();
+            animCoupPerso2();
+            jauge(jauge2, 1);
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        } else {
+            animUppercutPerso1();
+            animFeintePerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        }
+    } else {
+        if (Number(reponse) === c) {
+            uppercut(perso1);
+            animUppercutPerso2();
+            animCoupPerso1();
+            jauge(jauge1, 1);
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        } else {
+            animUppercutPerso2();
+            animFeintePerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        }
+    }
+}
+
+//-------------------------Comparer réponse et solution question 2
+
+function compareQuestion2() {
+    c = a * b;
+    let reponse = document.querySelector(".inputtext").value;
+    if (jeu.turn % 2 === 0) {
+        if (Number(reponse) === c) {
+            crochet(perso2);
+            animCrochetPerso1();
+            animCoupPerso2();
+            jauge(jauge2, 2);
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        } else {
+            animCrochetPerso1();
+            animFeintePerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        }
+    } else {
+        if (Number(reponse) === c) {
+            crochet(perso1);
+            animCrochetPerso2();
+            animCoupPerso1();
+            jauge(jauge1, 2);
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        } else {
+            animCrochetPerso2();
+            animFeintePerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        }
+
+    }
+}
+
+//---------------------------- Comparer réponse et solution question 3
+
+function comparerQuestion3() {
+    c = (a * b) + (a * b);
+
+    let reponse = document.querySelector(".inputtext").value;
+    if (jeu.turn % 2 === 0) {
+        if (Number(reponse) === c) {
+            direct(perso2);
+            animDirectPerso1();
+            animCoupPerso2();
+            jauge(jauge2, 4);
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        } else {
+            animDirectPerso1();
+            animFeintePerso2();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        }
+    } else {
+        if (Number(reponse) === c) {
+            direct(perso1);
+            animDirectPerso2();
+            animCoupPerso1();
+            jauge(jauge1, 4);
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        } else {
+            animDirectPerso2();
+            animFeintePerso1();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        }
+
+
+    }
+}
