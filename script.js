@@ -1,8 +1,9 @@
-let a = Math.floor(Math.random() * 11);
-let b = Math.floor(Math.random() * 11);
-let c;
+let a;
+let b;
+let c = a + b;
 
 let submit = document.querySelector(".inputsubmit");
+let submit1 = document.querySelector(".inputsubmit1");
 let submit2 = document.querySelector(".inputsubmit2");
 let submit3 = document.querySelector(".inputsubmit3");
 
@@ -16,6 +17,11 @@ let bouton6 = document.querySelector(".bouton6");
 let jauge1 = document.querySelector("#avancement");
 let jauge2 = document.querySelector("#avancement1");
 
+let buttonbox = document.querySelector(".buttonbox");
+let buttonbox2 = document.querySelector(".buttonbox2");
+let buttonbox1 = document.querySelector(".buttonbox1");
+
+let gameover = document.querySelector(".gameover");
 // ----------------------------objets
 "use strict";
 
@@ -40,8 +46,7 @@ let perso2 = {
 //----------------------changer de joueur
 
 function changeJoueur() {
-    let buttonbox2 = document.querySelector(".buttonbox2");
-    let buttonbox1 = document.querySelector(".buttonbox1");
+
     if (jeu.turn % 2 === 0) {
         buttonbox2.style.display = "none";
         buttonbox1.style.display = "flex";
@@ -93,7 +98,7 @@ function uppercut(cible) {
         cible.energie = cible.energie - 1;
     } else {
         cible.vies = cible.vies - 1;
-        cible.energie = 10;
+        cible.energie = 5;
     }
 }
 
@@ -102,7 +107,7 @@ function direct(cible) {
         cible.energie = cible.energie - 4;
     } else {
         cible.vies = cible.vies - 1;
-        cible.energie = 10;
+        cible.energie = 5;
     }
 }
 
@@ -111,7 +116,7 @@ function crochet(cible) {
         cible.energie = cible.energie - 2;
     } else {
         cible.vies = cible.vies - 1;
-        cible.energie = 10;
+        cible.energie = 5;
     }
 }
 
@@ -156,9 +161,9 @@ function afficherPoints() {
 //-----------------réinitialiser l'énergie et les vies
 
 function reinitialiser() {
-    perso1.energie = 10;
+    perso1.energie = 5;
     perso1.vies = 5;
-    perso2.energie = 10;
+    perso2.energie = 5;
     perso2.vies = 5;
 }
 
@@ -169,9 +174,21 @@ function finDeManche(personnage, cible) {
         points(personnage);
         addTurn();
         reinitialiser();
-        jaugeReinitial(jauge1, jauge2)
+        jaugeReinitial(jauge1, jauge2);
         afficherEV();
         changeJoueur();
+
+    }
+}
+
+//------------------------Gameover
+
+function gameOver() {
+    if ((perso1.points === 1) || (perso2.points === 1)) {
+        let ring = document.querySelector(".ring");
+        ring.style.display = "none";
+        buttonbox.style.display = "none";
+        gameover.style.display = "block";
     }
 }
 
@@ -310,13 +327,16 @@ changeJoueur();
 
 //-------------------------------event bouton submit1
 
-submit.addEventListener("click", function() {
+submit1.addEventListener("click", function() {
     compareQuestion1();
     reinitialiserQuestion();
     afficherEV();
     afficherPoints();
     addTurn();
     changeJoueur();
+    gameOver();
+    submit1.style.display = "none";
+    submit.style.display = "block";
 
 })
 
@@ -329,6 +349,9 @@ submit2.addEventListener("click", function() {
     afficherPoints();
     addTurn();
     changeJoueur();
+    gameOver();
+    submit2.style.display = "none";
+    submit.style.display = "block";
 })
 
 //---------------------------------event bouton submit3
@@ -340,13 +363,17 @@ submit3.addEventListener("click", function() {
     afficherPoints();
     addTurn();
     changeJoueur();
+    gameOver();
+    submit3.style.display = "none";
+    submit.style.display = "block";
 })
 
 // -----------------------------event boutons attaques joueur 1
 
 bouton1.addEventListener("click", function() {
     affichQuestion1();
-    submit.style.display = "block";
+    submit.style.display = "none"
+    submit1.style.display = "block";
     submit2.style.display = "none";
     submit3.style.display = "none";
 
@@ -355,6 +382,7 @@ bouton1.addEventListener("click", function() {
 bouton2.addEventListener("click", function() {
     affichQuestion2();
     submit.style.display = "none";
+    submit1.style.display = "none";
     submit2.style.display = "block";
     submit3.style.display = "none";
 
@@ -363,6 +391,7 @@ bouton2.addEventListener("click", function() {
 bouton3.addEventListener("click", function() {
     afficherQuestion3();
     submit.style.display = "none";
+    submit1.style.display = "none";
     submit2.style.display = "none";
     submit3.style.display = "block";
 })
@@ -372,7 +401,8 @@ bouton3.addEventListener("click", function() {
 
 bouton4.addEventListener("click", function() {
     affichQuestion1();
-    submit.style.display = "block";
+    submit.style.display = "none";
+    submit1.style.display = "block";
     submit2.style.display = "none";
     submit3.style.display = "none";
 
@@ -381,6 +411,7 @@ bouton4.addEventListener("click", function() {
 bouton5.addEventListener("click", function(e) {
     affichQuestion2();
     submit.style.display = "none";
+    submit1.style.display = "none";
     submit2.style.display = "block";
     submit3.style.display = "none";
 })
@@ -388,6 +419,7 @@ bouton5.addEventListener("click", function(e) {
 bouton6.addEventListener("click", function() {
     afficherQuestion3();
     submit.style.display = "none";
+    submit1.style.display = "none";
     submit2.style.display = "none";
     submit3.style.display = "block";
 })
@@ -426,7 +458,7 @@ function afficherQuestion3() {
 //-------------------------Comparer réponse et solution question 1
 
 function compareQuestion1() {
-    c = a + b;
+    let c = a + b;
     let reponse = document.querySelector(".inputtext").value;
     if (jeu.turn % 2 === 0) {
         if (Number(reponse) === c) {
@@ -462,7 +494,7 @@ function compareQuestion1() {
 //-------------------------Comparer réponse et solution question 2
 
 function compareQuestion2() {
-    c = a * b;
+    let c = a * b;
     let reponse = document.querySelector(".inputtext").value;
     if (jeu.turn % 2 === 0) {
         if (Number(reponse) === c) {
@@ -499,7 +531,7 @@ function compareQuestion2() {
 //---------------------------- Comparer réponse et solution question 3
 
 function comparerQuestion3() {
-    c = (a * b) + (a * b);
+    let c = (a * b) + (a * b);
 
     let reponse = document.querySelector(".inputtext").value;
     if (jeu.turn % 2 === 0) {
