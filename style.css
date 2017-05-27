@@ -11,10 +11,13 @@
          margin: auto;
      }
      
-     body>h1 {
+     header>h1 {
          font-family: 'VisitorTT1BRK';
-         text-shadow: 3px 3px 1px white;
-         color: red;
+         background: -webkit-linear-gradient(red, yellow);
+         -webkit-text-stroke-width: 2px;
+         -webkit-text-stroke-color: lightyellow;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
          padding-bottom: 25px;
          text-align: center;
          font-size: 4em;
@@ -26,6 +29,15 @@
          font-family: 'Press Start 2P', cursive;
          animation: eclair 2s infinite;
          font-size: 1em;
+     }
+     
+     header {
+         padding-top: 10px;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         width: 90%;
+         margin: auto;
      }
      
      h3 {
@@ -52,32 +64,16 @@
          display: none;
      }
      
-     .compteurpoints {
-         width: 15%;
-         height: 50px;
-         background: white;
-         border-radius: 10px;
-         display: flex;
-         justify-content: space-around;
-         align-items: center;
-         margin: auto;
-     }
-     
      .compteurJ1,
      .compteurJ2 {
          text-align: center;
          font-family: 'Press Start 2P', cursive;
+         width: 15%;
      }
      
-     .pointsJ1 {
-         width: 45%;
-         background: lightgray;
-         border-radius: 5px;
-         height: 40px;
-     }
-     
+     .pointsJ1,
      .pointsJ2 {
-         width: 45%;
+         width: 15%;
          background: lightgray;
          border-radius: 5px;
          height: 40px;
@@ -89,7 +85,7 @@
      
      .ring {
          width: 700px;
-         height: 290px;
+         height: 247px;
          background: url(boxingring.png) no-repeat center;
          margin: auto;
          display: flex;
@@ -221,7 +217,7 @@
          background-image: linear-gradient(yellow, white);
          font-family: 'Geo', sans-serif;
          width: 500px;
-         height: 370px;
+         height: 327px;
          padding-top: 20px;
          border-radius: 10px 10px 0 0;
      }
@@ -242,6 +238,12 @@
      .compteurvies2 {
          color: red;
          font-size: 3em;
+         margin: 0;
+     }
+     
+     .compteurener1,
+     .compteurener2 {
+         margin: 0;
      }
      
      .tremble {
@@ -261,7 +263,7 @@
      /*--------------------------partie questions*/
      
      .questions {
-         height: 140px;
+         height: 100px;
          width: 90%;
          background: darkgrey;
          margin: auto;
@@ -271,23 +273,24 @@
      }
      
      .question {
-         height: 80px;
+         height: 50px;
          width: 40%;
          border-radius: 10px;
          background: lightgray;
          margin-left: 200px;
          font-family: 'Press Start 2P', cursive;
          text-align: center;
-         line-height: 50px;
      }
      
      .inputtext {
-         height: 50px;
+         height: 40px;
          width: 10%;
+         font-family: 'Press Start 2P', cursive;
+         font-size: 1.5em;
      }
      
      .inputsubmit {
-         height: 80px;
+         height: 50px;
          width: 10%;
          font-family: 'Press Start 2P', cursive;
          margin-right: 200px;
