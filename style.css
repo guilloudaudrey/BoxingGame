@@ -13,7 +13,7 @@
      
      header>h1 {
          font-family: 'VisitorTT1BRK';
-         background: -webkit-linear-gradient(red, yellow);
+         background: -webkit-linear-gradient(red, white);
          -webkit-text-stroke-width: 2px;
          -webkit-text-stroke-color: lightyellow;
          -webkit-background-clip: text;
@@ -86,7 +86,7 @@
      .ring {
          width: 700px;
          height: 247px;
-         background: url(boxingring.png) no-repeat center;
+         background: url(images/boxingring.png) no-repeat center;
          margin: auto;
          display: flex;
      }
@@ -144,7 +144,7 @@
          left: -50px;
          position: relative;
          display: inline-block;
-         background: url("sprite2.png") no-repeat;
+         background: url("images/sprite2.png") no-repeat;
          background-position: -1198px 0px;
      }
      
@@ -155,7 +155,7 @@
          width: 150px;
          height: 200px;
          display: inline-block;
-         background: url("sprite1.png") no-repeat;
+         background: url("images/sprite1.png") no-repeat;
          background-position: 0px 0px;
      }
      

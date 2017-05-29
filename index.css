@@ -1,0 +1,55 @@
+     @font-face {
+         font-family: 'VisitorTT1BRK';
+         src: url('fonts/VisitorTT1BRK.eot?#iefix') format('embedded-opentype'), url('fonts/VisitorTT1BRK.woff') format('woff'), url('fonts/VisitorTT1BRK.ttf') format('truetype'), url('fonts/VisitorTT1BRK.svg#VisitorTT1BRK') format('svg');
+         font-weight: normal;
+         font-style: normal;
+     }
+     
+     video {
+         position: fixed;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+     }
+     
+     h1 {
+         position: relative;
+         font-family: 'VisitorTT1BRK';
+         background: -webkit-linear-gradient(red, white);
+         -webkit-text-stroke-width: 2px;
+         -webkit-text-stroke-color: lightyellow;
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         padding-bottom: 25px;
+         text-align: center;
+         font-size: 7em;
+         margin-top: 200px;
+     }
+     
+     .joueurs {
+         display: flex;
+         position: relative;
+         justify-content: space-around;
+         font-family: 'VisitorTT1BRK';
+         color: white;
+         width: 60%;
+         margin: auto;
+     }
+     
+     h2 {
+         color: white;
+     }
+     
+     a {
+         color: white;
+         text-decoration: none;
+     }
+     
+     p {
+         position: relative;
+         font-family: 'VisitorTT1BRK';
+         color: white;
+         text-align: center;
+         margin-top: 100px;
+     }
