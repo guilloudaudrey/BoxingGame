@@ -162,9 +162,9 @@ function afficherPoints() {
 
 function reinitialiser() {
     perso1.energie = 5;
-    perso1.vies = 5;
+    perso1.vies = 0;
     perso2.energie = 5;
-    perso2.vies = 5;
+    perso2.vies = 0;
 }
 
 //------------------------- Fin de Manche

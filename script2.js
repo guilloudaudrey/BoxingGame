@@ -86,7 +86,6 @@ function ComputerTurn() {
         afficherEV();
         afficherPoints();
         changeJoueur();
-        gameOver();
         finDeManche(perso1, perso2);
         finDeManche(perso2, perso1);
         jauge(jauge1, 1);
@@ -101,7 +100,6 @@ function ComputerTurn() {
         afficherEV();
         afficherPoints();
         changeJoueur();
-        gameOver();
         finDeManche(perso1, perso2);
         finDeManche(perso2, perso1);
         jauge(jauge1, 2);
@@ -196,9 +194,9 @@ function afficherPoints() {
 
 function reinitialiser() {
     perso1.energie = 5;
-    perso1.vies = 5;
+    perso1.vies = 0;
     perso2.energie = 5;
-    perso2.vies = 5;
+    perso2.vies = 0;
 }
 
 //------------------------- Fin de Manche
@@ -206,17 +204,31 @@ function reinitialiser() {
 function finDeManche(personnage, cible) {
     if (cible.vies < 0) {
         points(personnage);
+        afficherPoints();
         reinitialiser();
         jaugeReinitial(jauge1, jauge2);
         afficherEV();
         changeJoueur();
+        gameOver();
     }
 }
 
 //------------------------Gameover
 
 function gameOver() {
-    if ((perso1.points === 2) || (perso2.points === 2)) {
+    if (perso1.points === 2) {
+        setTimeout(function() {
+            animFaintPerso2();
+        }, 1500);
+        let ring = document.querySelector(".ring");
+        ring.style.display = "none";
+        buttonbox.style.display = "none";
+        gameover.style.display = "block";
+    }
+    if (perso2.points === 2) {
+        setTimeout(function() {
+            animFaintPerso1();
+        }, 1500);
         let ring = document.querySelector(".ring");
         ring.style.display = "none";
         buttonbox.style.display = "none";
@@ -282,7 +294,7 @@ function animCoupPerso1() {
     })
 }
 
-function animFaintPerso() {
+function animFaintPerso1() {
     let personnage1 = document.querySelector(".perso1");
     let classes = personnage1.className;
     personnage1.classList.add("boxerfaint");
