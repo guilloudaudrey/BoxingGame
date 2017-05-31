@@ -13,7 +13,7 @@
      
      header>h1 {
          font-family: 'VisitorTT1BRK';
-         background: -webkit-linear-gradient(red, white);
+         background: -webkit-linear-gradient(red, lightsalmon);
          -webkit-text-stroke-width: 2px;
          -webkit-text-stroke-color: lightyellow;
          -webkit-background-clip: text;
@@ -32,12 +32,12 @@
      }
      
      header {
-         padding-top: 10px;
          display: flex;
          justify-content: space-between;
          align-items: center;
          width: 90%;
          margin: auto;
+         height: 160px;
      }
      
      h3 {
@@ -54,8 +54,8 @@
      
      .gameover {
          width: 700px;
-         height: 290px;
-         line-height: 290px;
+         height: 247px;
+         line-height: 247px;
          font-family: 'Press Start 2P', cursive;
          font-size: 3em;
          text-align: center;
@@ -66,17 +66,31 @@
      
      .compteurJ1,
      .compteurJ2 {
-         text-align: center;
+         margin: auto;
          font-family: 'Press Start 2P', cursive;
          width: 15%;
+         line-height: 6px;
      }
      
      .pointsJ1,
      .pointsJ2 {
          width: 15%;
          background: lightgray;
+         box-shadow: 4px 4px 1px white;
          border-radius: 5px;
-         height: 40px;
+         height: 70px;
+         text-align: center;
+         text-shadow: 1px 2px 1px white;
+         font-family: 'Press Start 2P', cursive;
+         font-size: 1em;
+     }
+     
+     #trophee1 {
+         display: none;
+     }
+     
+     #trophee2 {
+         display: none;
      }
      
      .zone {
@@ -148,6 +162,18 @@
          background-position: -1198px 0px;
      }
      
+     .perso2_battu {
+         width: 165px;
+         height: 200px;
+         top: 60px;
+         left: 0px;
+         position: relative;
+         display: inline-block;
+         background: url("images/perso2perdant.png") no-repeat;
+         background-position: 0px 0px;
+         display: none;
+     }
+     
      .perso1 {
          top: 20px;
          left: 240px;
@@ -157,6 +183,18 @@
          display: inline-block;
          background: url("images/sprite1.png") no-repeat;
          background-position: 0px 0px;
+     }
+     
+     .perso1_battu {
+         top: 100px;
+         left: 200px;
+         position: relative;
+         width: 150px;
+         height: 200px;
+         display: inline-block;
+         background: url("images/perso1perdant.png") no-repeat;
+         background-position: 0px 0px;
+         display: none;
      }
      
      .bouton1,
@@ -382,6 +420,23 @@
      
      .perso2faint {
          animation: advfaint 0.5s steps(1);
+     }
+     
+     .flash {
+         animation-name: flash;
+         animation-duration: 2s;
+     }
+     
+     @keyframes flash {
+         0% {
+             background: lightgray;
+         }
+         50% {
+             background: yellow;
+         }
+         100% {
+             background: lightgrey;
+         }
      }
      
      @keyframes shake {

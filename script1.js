@@ -140,8 +140,8 @@ function jauge(elem, valeur) {
 
 //----------------------------Réinitialisation de la jauge
 function jaugeReinitial(elem, elem1) {
-    elem.value = 5;
-    elem1.value = 5;
+    elem.value = 10;
+    elem1.value = 10;
 }
 
 // -----------------------------ajouter points
@@ -161,9 +161,9 @@ function afficherPoints() {
 //-----------------réinitialiser l'énergie et les vies
 
 function reinitialiser() {
-    perso1.energie = 5;
+    perso1.energie = 10;
     perso1.vies = 0;
-    perso2.energie = 5;
+    perso2.energie = 10;
     perso2.vies = 0;
 }
 

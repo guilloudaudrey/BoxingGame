@@ -22,6 +22,26 @@ let buttonbox2 = document.querySelector(".buttonbox2");
 let buttonbox1 = document.querySelector(".buttonbox1");
 
 let gameover = document.querySelector(".gameover");
+let gameoverp = document.querySelector(".gameoverp");
+
+let pointsener1 = document.querySelector(".compteurener1");
+let pointsvies1 = document.querySelector(".compteurvies1");
+let pointsener2 = document.querySelector(".compteurener2");
+let pointsvies2 = document.querySelector(".compteurvies2");
+
+let ener1 = document.querySelector(".energie1");
+let ener2 = document.querySelector(".energie2");
+let vies1 = document.querySelector(".vies1");
+let vies2 = document.querySelector(".vies2");
+
+let pointJ1 = document.querySelector(".compteurJ1");
+let pointJ2 = document.querySelector(".compteurJ2");
+
+let boxpointsJ1 = document.querySelector(".pointsJ1");
+let boxpointsJ2 = document.querySelector(".pointsJ2");
+
+let trophee1 = document.querySelector("#trophee1");
+let trophee2 = document.querySelector("#trophee2");
 
 let punch = new Audio('sounds/punch.mp3');
 let punch2 = new Audio('sounds/punch2.mp3');
@@ -31,7 +51,7 @@ let cheering = new Audio('sounds/cheering.mp3');
 let stadium = new Audio('sounds/stadium.mp3');
 let boo = new Audio('sounds/boo.mp3');
 let swoosh = new Audio('sounds/swoosh.mp3');
-stadium.volume = 0.1;
+stadium.volume = 0.3;
 stadium.loop = Infinity;
 
 // ----------------------------objets
@@ -43,14 +63,14 @@ let jeu = {
 
 let perso1 = {
     name: "A",
-    energie: 5,
+    energie: 10,
     vies: 0,
     points: 0,
 }
 
 let perso2 = {
     name: "B",
-    energie: 5,
+    energie: 10,
     vies: 0,
     points: 0,
 }
@@ -75,50 +95,54 @@ function addTurn() {
 
 //---------------------------actions ordi
 
-function ComputerTurn() {
+function computerTurn() {
     let i = Math.floor(Math.random() * 3) + 1;
-    if (i === 1) {
-        addTurn();
-        uppercut(perso1);
-        punch.play();
-        animUppercutPerso2();
-        animCoupPerso1();
-        afficherEV();
-        afficherPoints();
-        changeJoueur();
-        finDeManche(perso1, perso2);
-        finDeManche(perso2, perso1);
-        jauge(jauge1, 1);
-    }
 
-    if (i === 2) {
-        addTurn();
-        crochet(perso1);
-        punch2.play();
-        animCrochetPerso2();
-        animCoupPerso1();
-        afficherEV();
-        afficherPoints();
-        changeJoueur();
-        finDeManche(perso1, perso2);
-        finDeManche(perso2, perso1);
-        jauge(jauge1, 2);
+    if (perso1.points < 2) {
+        if (i === 1) {
+            addTurn();
+            uppercut(perso1);
+            punch.play();
+            animUppercutPerso2();
+            animCoupPerso1();
+            jauge(jauge1, 1);
+            afficherEV();
+            afficherPoints();
+            changeJoueur();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+        }
 
-    }
+        if (i === 2) {
+            addTurn();
+            crochet(perso1);
+            punch2.play();
+            animCrochetPerso2();
+            animCoupPerso1();
+            jauge(jauge1, 2);
+            afficherEV();
+            afficherPoints();
+            changeJoueur();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
 
-    if (i === 3) {
-        addTurn();
-        direct(perso1);
-        punch3.play();
-        animDirectPerso2();
-        animCoupPerso1();
-        afficherEV();
-        afficherPoints();
-        changeJoueur();
-        gameOver();
-        finDeManche(perso1, perso2);
-        finDeManche(perso2, perso1);
-        jauge(jauge1, 4)
+        }
+
+        if (i === 3) {
+            addTurn();
+            direct(perso1);
+            punch.play();
+            animDirectPerso2();
+            animCoupPerso1();
+            jauge(jauge1, 4);
+            afficherEV();
+            afficherPoints();
+            changeJoueur();
+            gameOver();
+            finDeManche(perso1, perso2);
+            finDeManche(perso2, perso1);
+
+        }
     }
 }
 
@@ -155,25 +179,25 @@ function crochet(cible) {
 //----------------------------afficher énergie et vies 
 
 function afficherEV() {
-    let pointsener1 = document.querySelector(".compteurener1");
+
     pointsener1.innerHTML = perso1.energie;
-    let pointsvies1 = document.querySelector(".compteurvies1");
     pointsvies1.innerHTML = perso1.vies;
-    let pointsener2 = document.querySelector(".compteurener2");
     pointsener2.innerHTML = perso2.energie;
-    let pointsvies2 = document.querySelector(".compteurvies2");
     pointsvies2.innerHTML = perso2.vies;
 }
 
 //--------------------------Progression de la jauge
-function jauge(elem, valeur) {
-    elem.value = elem.value - valeur;
+function jauge(elem, score) {
+    if (elem.value >= score) {
+        elem.value = elem.value - score;
+    }
 }
+
 
 //----------------------------Réinitialisation de la jauge
 function jaugeReinitial(elem, elem1) {
-    elem.value = 5;
-    elem1.value = 5;
+    elem.value = 20;
+    elem1.value = 20;
 }
 
 // -----------------------------ajouter points
@@ -185,17 +209,15 @@ function points(personnage) {
 //------------------ afficher points des joueurs
 
 function afficherPoints() {
-    let pointJ1 = document.querySelector(".compteurJ1");
     pointJ1.innerHTML = perso1.points;
-    let pointJ2 = document.querySelector(".compteurJ2");
     pointJ2.innerHTML = perso2.points;
 }
 //-----------------réinitialiser l'énergie et les vies
 
 function reinitialiser() {
-    perso1.energie = 5;
+    perso1.energie = 10;
     perso1.vies = 0;
-    perso2.energie = 5;
+    perso2.energie = 10;
     perso2.vies = 0;
 }
 
@@ -205,34 +227,67 @@ function finDeManche(personnage, cible) {
     if (cible.vies < 0) {
         points(personnage);
         afficherPoints();
-        reinitialiser();
         jaugeReinitial(jauge1, jauge2);
+        reinitialiser();
         afficherEV();
         changeJoueur();
         gameOver();
+
+
     }
 }
 
 //------------------------Gameover
 
 function gameOver() {
+    let joueur1 = document.querySelector(".perso1");
+    let joueur2 = document.querySelector(".perso2");
+    let joueur1battu = document.querySelector(".perso1_battu");
+    let joueur2battu = document.querySelector(".perso2_battu");
+
     if (perso1.points === 2) {
+        animFaintPerso2();
         setTimeout(function() {
-            animFaintPerso2();
-        }, 1500);
-        let ring = document.querySelector(".ring");
-        ring.style.display = "none";
-        buttonbox.style.display = "none";
-        gameover.style.display = "block";
+            joueur2battu.style.display = "block";
+            joueur2.style.display = "none";
+        }, 500);
+
+        setTimeout(function() {
+            ener1.style.display = "none";
+            ener2.style.display = "none";
+            vies1.style.display = "none";
+            vies2.style.display = "none";
+            jauge1.style.display = "none";
+            jauge2.style.display = "none";
+            trophee1.style.display = "inline-block";
+            let ring = document.querySelector(".ring");
+            ring.style.display = "none";
+            buttonbox.style.display = "none";
+            gameover.style.display = "block";
+            gameoverp.innerHTML = "Bravo !"
+        }, 2500);
     }
     if (perso2.points === 2) {
+        animFaintPerso1();
         setTimeout(function() {
-            animFaintPerso1();
-        }, 1500);
-        let ring = document.querySelector(".ring");
-        ring.style.display = "none";
-        buttonbox.style.display = "none";
-        gameover.style.display = "block";
+            joueur1battu.style.display = "block";
+            joueur1.style.display = "none";
+        }, 500);
+
+        setTimeout(function() {
+            ener1.style.display = "none";
+            ener2.style.display = "none";
+            vies1.style.display = "none";
+            vies2.style.display = "none";
+            jauge1.style.display = "none";
+            jauge2.style.display = "none";
+            trophee2.style.display = "inline-block";
+            let ring = document.querySelector(".ring");
+            ring.style.display = "none";
+            buttonbox.style.display = "none";
+            gameover.style.display = "block";
+            gameoverp.innerHTML = "Perdu !"
+        }, 2500);
     }
 }
 
@@ -246,6 +301,15 @@ function reinitialiserQuestion() {
     reponse.value = "";
 }
 
+//-----------------------------animation du compteur de points
+
+function flash(box) {
+    let classe = box.className;
+    box.classList.add("flash");
+    box.addEventListener("animationend", function() {
+        box.className = classe;
+    })
+}
 
 //--------------------------------- animations perso 1
 
@@ -383,7 +447,7 @@ submit1.addEventListener("click", function() {
     submit1.style.display = "none";
     submit.style.display = "block";
     setTimeout(function() {
-        ComputerTurn();
+        computerTurn();
     }, 1500);
 
 
@@ -402,7 +466,7 @@ submit2.addEventListener("click", function() {
     submit2.style.display = "none";
     submit.style.display = "block";
     setTimeout(function() {
-        ComputerTurn();
+        computerTurn();
     }, 1500);
 
 })
@@ -420,8 +484,9 @@ submit3.addEventListener("click", function() {
     submit3.style.display = "none";
     submit.style.display = "block";
     setTimeout(function() {
-        ComputerTurn();
+        computerTurn();
     }, 1500);
+
 
 
 })
@@ -532,9 +597,12 @@ function compareQuestion1() {
         animUppercutPerso1();
         animFeintePerso2();
         swoosh.play();
+        setTimeout(function() {
+            boo.play();
+        }, 500);
         finDeManche(perso1, perso2);
         finDeManche(perso2, perso1);
-        boo.play();
+
     }
 }
 
@@ -558,7 +626,9 @@ function compareQuestion2() {
         animCrochetPerso1();
         animFeintePerso2();
         swoosh.play();
-        boo.play();
+        setTimeout(function() {
+            boo.play();
+        }, 500);
         finDeManche(perso1, perso2);
         finDeManche(perso2, perso1);
     }
@@ -584,7 +654,9 @@ function comparerQuestion3() {
         animDirectPerso1();
         animFeintePerso2();
         swoosh.play();
-        boo.play();
+        setTimeout(function() {
+            boo.play();
+        }, 500);
         finDeManche(perso1, perso2);
         finDeManche(perso2, perso1);
     }
