@@ -1,5 +1,6 @@
 let a;
 let b;
+let d;
 let c = a + b;
 
 let submit = document.querySelector(".inputsubmit");
@@ -51,6 +52,7 @@ let cheering = new Audio('sounds/cheering.mp3');
 let stadium = new Audio('sounds/stadium.mp3');
 let boo = new Audio('sounds/boo.mp3');
 let swoosh = new Audio('sounds/swoosh.mp3');
+let bellpoint = new Audio('sounds/bellpoint.mp3');
 stadium.volume = 0.3;
 stadium.loop = Infinity;
 
@@ -202,8 +204,9 @@ function jaugeReinitial(elem, elem1) {
 
 // -----------------------------ajouter points
 
-function points(personnage) {
+function points(personnage, cible) {
     personnage.points = personnage.points + 1;
+
 }
 
 //------------------ afficher points des joueurs
@@ -232,6 +235,13 @@ function finDeManche(personnage, cible) {
         afficherEV();
         changeJoueur();
         gameOver();
+
+        setTimeout(function() {
+            bellpoint.play();
+            flash(boxpointsJ1);
+            flash(boxpointsJ2);
+        }, 1200);
+
 
 
     }
@@ -310,6 +320,8 @@ function flash(box) {
         box.className = classe;
     })
 }
+
+
 
 //--------------------------------- animations perso 1
 

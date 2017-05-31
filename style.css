@@ -424,14 +424,20 @@
      
      .flash {
          animation-name: flash;
-         animation-duration: 2s;
+         animation-duration: 3s;
      }
      
      @keyframes flash {
          0% {
              background: lightgray;
          }
+         25% {
+             background: yellow;
+         }
          50% {
+             background: lightgrey;
+         }
+         75% {
              background: yellow;
          }
          100% {
