@@ -14,14 +14,29 @@ let bouton4 = document.querySelector(".bouton4");
 let bouton5 = document.querySelector(".bouton5");
 let bouton6 = document.querySelector(".bouton6");
 
-let jauge1 = document.querySelector("#avancement");
-let jauge2 = document.querySelector("#avancement1");
-
 let buttonbox = document.querySelector(".buttonbox");
 let buttonbox2 = document.querySelector(".buttonbox2");
 let buttonbox1 = document.querySelector(".buttonbox1");
 
+let portrait1 = document.querySelector("#portrait1");
+let portrait2 = document.querySelector("#portrait2");
+
 let gameover = document.querySelector(".gameover");
+
+let jauge1 = document.querySelector("#avancement");
+let jauge2 = document.querySelector("#avancement1");
+
+let punch = new Audio('sounds/punch.mp3');
+let punch2 = new Audio('sounds/punch2.mp3');
+let punch3 = new Audio('sounds/punch3.mp3');
+let bell = new Audio('sounds/bell.mp3');
+let cheering = new Audio('sounds/cheering.mp3');
+let stadium = new Audio('sounds/stadium.mp3');
+let boo = new Audio('sounds/boo.mp3');
+let swoosh = new Audio('sounds/swoosh.mp3');
+let bellpoint = new Audio('sounds/bellpoint.mp3');
+stadium.volume = 0.3;
+stadium.loop = Infinity;
 // ----------------------------objets
 "use strict";
 
@@ -31,14 +46,14 @@ let jeu = {
 
 let perso1 = {
     name: "A",
-    energie: 5,
+    energie: 10,
     vies: 0,
     points: 0,
 }
 
 let perso2 = {
     name: "B",
-    energie: 5,
+    energie: 10,
     vies: 0,
     points: 0,
 }
@@ -50,40 +65,18 @@ function changeJoueur() {
     if (jeu.turn % 2 === 0) {
         buttonbox2.style.display = "none";
         buttonbox1.style.display = "flex";
+        animPortrait(portrait2);
+        portrait1.style.visibility = "hidden";
+        portrait2.style.visibility = "visible";
     } else {
         buttonbox2.style.display = "flex";
         buttonbox1.style.display = "none";
+        animPortrait(portrait1);
+        portrait1.style.visibility = "visible";
+        portrait2.style.visibility = "hidden";
     }
 }
 
-/*---------------------------actions ordi
-
-function ComputerTurn() {
-    let i = Math.floor(Math.random() * 3) + 1;
-    if (i === 1) {
-        uppercut(perso1);
-        animUppercutPerso2();
-        animCoupPerso1();
-        finDeManche(perso1, perso2);
-        finDeManche(perso2, perso1);
-    }
-
-    if (i === 2) {
-        crochet(perso1);
-        animCrochetPerso2();
-        animCoupPerso1();
-        finDeManche(perso1, perso2);
-        finDeManche(perso2, perso1);
-    }
-
-    if (i === 2) {
-        direct(perso1);
-        animDirectPerso2();
-        animCoupPerso1();
-        finDeManche(perso1, perso2);
-        finDeManche(perso2, perso1);
-    }
-}*/
 
 //---------------------------ajouter tour
 
@@ -98,7 +91,7 @@ function uppercut(cible) {
         cible.energie = cible.energie - 1;
     } else {
         cible.vies = cible.vies - 1;
-        cible.energie = 5;
+        cible.energie = 10;
     }
 }
 
@@ -107,7 +100,7 @@ function direct(cible) {
         cible.energie = cible.energie - 4;
     } else {
         cible.vies = cible.vies - 1;
-        cible.energie = 5;
+        cible.energie = 10;
     }
 }
 
@@ -116,7 +109,7 @@ function crochet(cible) {
         cible.energie = cible.energie - 2;
     } else {
         cible.vies = cible.vies - 1;
-        cible.energie = 5;
+        cible.energie = 10;
     }
 }
 
@@ -134,8 +127,10 @@ function afficherEV() {
 }
 
 //--------------------------Progression de la jauge
-function jauge(elem, valeur) {
-    elem.value = elem.value - valeur;
+function jauge(elem, score) {
+    if (elem.value >= score) {
+        elem.value = elem.value - score;
+    }
 }
 
 //----------------------------Réinitialisation de la jauge
@@ -171,12 +166,12 @@ function reinitialiser() {
 
 function finDeManche(personnage, cible) {
     if (cible.vies < 0) {
+        jaugeReinitial(jauge1, jauge2);
         points(personnage);
         addTurn();
-        reinitialiser();
-        jaugeReinitial(jauge1, jauge2);
-        afficherEV();
         changeJoueur();
+        reinitialiser();
+        afficherEV();
 
     }
 }
@@ -184,7 +179,7 @@ function finDeManche(personnage, cible) {
 //------------------------Gameover
 
 function gameOver() {
-    if ((perso1.points === 1) || (perso2.points === 1)) {
+    if ((perso1.points === 2) || (perso2.points === 2)) {
         let ring = document.querySelector(".ring");
         ring.style.display = "none";
         buttonbox.style.display = "none";
@@ -202,6 +197,15 @@ function reinitialiserQuestion() {
     reponse.value = "";
 }
 
+//animation sur les portraits
+
+function animPortrait(portrait) {
+    let classe = portrait.className;
+    portrait.classList.add("eclair");
+    portrait.addEventListener('animationend', function() {
+        portrait.className = classe;
+    })
+}
 
 //--------------------------------- animations perso 1
 
@@ -322,8 +326,9 @@ function animFaintPerso2() {
 //----------------------------------- événements
 
 afficherEV();
-afficherEV();
 changeJoueur();
+stadium.play();
+bell.play();
 
 //-------------------------------event bouton submit1
 
@@ -463,6 +468,8 @@ function compareQuestion1() {
     if (jeu.turn % 2 === 0) {
         if (Number(reponse) === c) {
             uppercut(perso2);
+            punch.play();
+            cheering.play();
             animUppercutPerso1();
             animCoupPerso2();
             jauge(jauge2, 1);
@@ -470,6 +477,8 @@ function compareQuestion1() {
             finDeManche(perso2, perso1);
         } else {
             animUppercutPerso1();
+            swoosh.play();
+            boo.play();
             animFeintePerso2();
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
@@ -477,6 +486,8 @@ function compareQuestion1() {
     } else {
         if (Number(reponse) === c) {
             uppercut(perso1);
+            punch.play();
+            cheering.play();
             animUppercutPerso2();
             animCoupPerso1();
             jauge(jauge1, 1);
@@ -484,6 +495,8 @@ function compareQuestion1() {
             finDeManche(perso2, perso1);
         } else {
             animUppercutPerso2();
+            swoosh.play();
+            boo.play();
             animFeintePerso1();
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
@@ -499,6 +512,8 @@ function compareQuestion2() {
     if (jeu.turn % 2 === 0) {
         if (Number(reponse) === c) {
             crochet(perso2);
+            punch2.play();
+            cheering.play();
             animCrochetPerso1();
             animCoupPerso2();
             jauge(jauge2, 2);
@@ -506,6 +521,8 @@ function compareQuestion2() {
             finDeManche(perso2, perso1);
         } else {
             animCrochetPerso1();
+            swoosh.play();
+            boo.play();
             animFeintePerso2();
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
@@ -513,6 +530,8 @@ function compareQuestion2() {
     } else {
         if (Number(reponse) === c) {
             crochet(perso1);
+            punch2.play();
+            cheering.play();
             animCrochetPerso2();
             animCoupPerso1();
             jauge(jauge1, 2);
@@ -521,6 +540,8 @@ function compareQuestion2() {
         } else {
             animCrochetPerso2();
             animFeintePerso1();
+            swoosh.play();
+            boo.play();
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
         }
@@ -537,6 +558,8 @@ function comparerQuestion3() {
     if (jeu.turn % 2 === 0) {
         if (Number(reponse) === c) {
             direct(perso2);
+            punch3.play();
+            cheering.play();
             animDirectPerso1();
             animCoupPerso2();
             jauge(jauge2, 4);
@@ -544,6 +567,8 @@ function comparerQuestion3() {
             finDeManche(perso2, perso1);
         } else {
             animDirectPerso1();
+            swoosh.play();
+            boo.play();
             animFeintePerso2();
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);
@@ -551,6 +576,8 @@ function comparerQuestion3() {
     } else {
         if (Number(reponse) === c) {
             direct(perso1);
+            punch3.play();
+            cheering.play();
             animDirectPerso2();
             animCoupPerso1();
             jauge(jauge1, 4);
@@ -558,6 +585,8 @@ function comparerQuestion3() {
             finDeManche(perso2, perso1);
         } else {
             animDirectPerso2();
+            swoosh.play();
+            boo.play();
             animFeintePerso1();
             finDeManche(perso1, perso2);
             finDeManche(perso2, perso1);

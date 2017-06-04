@@ -182,9 +182,9 @@ function crochet(cible) {
 
 function afficherEV() {
 
-    pointsener1.innerHTML = perso1.energie;
+    //pointsener1.innerHTML = perso1.energie;
     pointsvies1.innerHTML = perso1.vies;
-    pointsener2.innerHTML = perso2.energie;
+    //pointsener2.innerHTML = perso2.energie;
     pointsvies2.innerHTML = perso2.vies;
 }
 
@@ -198,8 +198,8 @@ function jauge(elem, score) {
 
 //----------------------------Réinitialisation de la jauge
 function jaugeReinitial(elem, elem1) {
-    elem.value = 20;
-    elem1.value = 20;
+    elem.value = 10;
+    elem1.value = 10;
 }
 
 // -----------------------------ajouter points
@@ -240,7 +240,7 @@ function finDeManche(personnage, cible) {
             bellpoint.play();
             flash(boxpointsJ1);
             flash(boxpointsJ2);
-        }, 1200);
+        }, 500);
 
 
 
