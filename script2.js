@@ -437,8 +437,6 @@ function animFaintPerso2() {
     })
 }
 
-
-
 //----------------------------------- événements
 bell.play();
 stadium.play();
