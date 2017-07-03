@@ -1,1 +1,1 @@
-# JeuJS
+Jeu éducatif réalisé avec javascript
